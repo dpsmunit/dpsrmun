@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DPSR MUN 2025</title>
+    <link rel="icon" type="image/png" href="https://i.ibb.co/xqvT3PNf/dpsmun-removebg-preview.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Gallery Image Preloading -->
+    <link rel="preload" href="https://i.ibb.co/680xTxw/mun-gallery-1.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/T1H8B2v/mun-gallery-4.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/N1J7N3H/mun-gallery-2.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/hK2jB2k/mun-gallery-11.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/qYn0SgN/mun-gallery-3.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/3WqGZ4V/mun-gallery-5.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/mXzR13R/mun-gallery-7.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/R9m0X0H/mun-gallery-9.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/j3vj2xZ/mun-gallery-6.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/P9t7C0F/mun-gallery-8.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/8mr8f3h/mun-gallery-10.jpg" as="image">
+    <link rel="preload" href="https://i.ibb.co/qnM9f4b/mun-gallery-12.jpg" as="image">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'mun-green': '#1DB954',
+                'mun-soft-green': '#C7F8CC',
+                'mun-white': '#F9F9F9',
+                'mun-dark-text': '#1F2937',
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F9F9F9; /* mun-white */
+            color: #1F2937; /* mun-dark-text */
+        }
+        ::selection {
+            background-color: #1DB954;
+            color: #F9F9F9;
+        }
+        .active-nav {
+            color: #1DB954; /* mun-green */
+            font-weight: 600;
+        }
+        .active-nav::after {
+             content: '';
+             position: absolute;
+             bottom: -4px;
+             left: 50%;
+             transform: translateX(-50%);
+             width: 6px;
+             height: 6px;
+             border-radius: 9999px;
+             background-color: #1DB954;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.13.0"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
