@@ -1,74 +1,148 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { CloseIcon, ChevronLeftIcon, ChevronRightIcon, ExpandIcon } from '../components/icons/Icons';
+import { CloseIcon, ChevronLeftIcon, ChevronRightIcon, ExpandIcon, PlayIcon, CameraIcon } from '../components/icons/Icons';
 import useWindowSize from '../hooks/useWindowSize';
 
-interface GalleryImage {
+/**
+ * Generates a thumbnail from a video source.
+ * @param videoSrc The source URL of the video. Note: This works best for locally hosted videos due to browser CORS policies.
+ * @returns A promise that resolves with a base64 Data URL of the thumbnail.
+ */
+const generateVideoThumbnail = (videoSrc: string): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const video = document.createElement('video');
+        video.crossOrigin = "anonymous";
+        video.preload = 'metadata';
+        
+        // Hide the video element
+        video.style.position = 'fixed';
+        video.style.opacity = '0';
+        video.style.pointerEvents = 'none';
+
+        video.onloadeddata = () => {
+            // Seek to a specific time (e.g., 1 second) to get a representative frame.
+            video.currentTime = 1; 
+        };
+        
+        video.onseeked = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+
+            if (!ctx) {
+                document.body.removeChild(video);
+                return reject(new Error('Could not get canvas context.'));
+            }
+
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL('image/jpeg');
+            document.body.removeChild(video); // Clean up
+            resolve(dataUrl);
+        };
+
+        video.onerror = (e) => {
+            document.body.removeChild(video); // Clean up on error
+            reject(new Error(`Video error for source ${videoSrc}: ${e}`));
+        };
+        
+        document.body.appendChild(video);
+        video.src = videoSrc;
+    });
+};
+
+
+interface GalleryItem {
+    type: 'image' | 'video';
     src: string;
+    thumbnailSrc?: string;
     caption: string;
     tags: string[];
+    credit?: string;
 }
 
-const GALLERY_IMAGES: GalleryImage[] = [
-    { src: 'https://images.pexels.com/photos/847393/pexels-photo-847393.jpeg', caption: 'Opening ceremony setting the stage for days of intense debate.', tags: ['Ceremony'] },
-    { src: 'https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg', caption: 'Delegates collaborating during an unmoderated caucus to draft resolutions.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg', caption: 'A passionate delegate delivering a speech during the General Speakers List.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg', caption: 'Moments of camaraderie and networking between sessions.', tags: ['Social'] },
-    { src: 'https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg', caption: 'Recognizing excellence and diplomacy during the awards ceremony.', tags: ['Ceremony'] },
-    { src: 'https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg', caption: 'The Executive Board guiding the committee proceedings.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/355321/pexels-photo-355321.jpeg', caption: 'A wide view of a committee in full session.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/417344/pexels-photo-417344.jpeg', caption: 'The delegate placard, a symbol of representation and voice.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/5676744/pexels-photo-5676744.jpeg', caption: 'A crucial vote that could change the course of the debate.', tags: ['Session'] },
-    { src: 'https://images.pexels.com/photos/1526813/pexels-photo-1526813.jpeg', caption: 'An inspiring keynote address from a distinguished guest.', tags: ['Ceremony'] },
+const GALLERY_ITEMS = [
+
+
+  // Images from the 'images' directory
+  { type: 'image', src: './dps/IMG-20250625-WA0001.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  { type: 'image', src: './dps/IMG-20250625-WA0002.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  { type: 'image', src: './dps/IMG-20250625-WA0003.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  { type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
 ];
 
 
-const allTags = ['All', ...Array.from(new Set(GALLERY_IMAGES.flatMap(img => img.tags)))];
+const allTags = ['All', ...Array.from(new Set(GALLERY_ITEMS.flatMap(img => img.tags)))];
 
 
 const GalleryCard: React.FC<{
-    image: GalleryImage;
+    item: GalleryItem;
     onClick: () => void;
-}> = ({ image, onClick }) => {
-    
+}> = ({ item, onClick }) => {
+    const [dynamicThumbnail, setDynamicThumbnail] = useState(item.thumbnailSrc);
+
+    useEffect(() => {
+        const isLocalVideo = item.type === 'video' && !item.src.startsWith('http');
+        if (isLocalVideo && !item.thumbnailSrc) {
+            generateVideoThumbnail(item.src)
+                .then(setDynamicThumbnail)
+                .catch(err => {
+                    console.error(`Failed to generate thumbnail for ${item.src}:`, err);
+                    // You could set a fallback image here if you want
+                    // setDynamicThumbnail('/path/to/fallback-video-icon.png');
+                });
+        } else {
+            setDynamicThumbnail(item.thumbnailSrc);
+        }
+    }, [item.src, item.type, item.thumbnailSrc]);
+
     return (
         <div
             className="break-inside-avoid rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-mun-green/30 cursor-pointer group relative transition-all duration-300 ease-out will-change-transform"
             onClick={onClick}
         >
             <img
-                src={image.src}
-                alt={image.caption}
+                src={dynamicThumbnail || item.src}
+                alt={item.caption}
                 loading="lazy"
                 className="w-full h-auto object-cover transition-all duration-500 ease-in-out group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-4 w-full text-white">
-                {image.tags && image.tags.length > 0 &&
-                    <span className="inline-block bg-mun-green text-white text-xs font-bold uppercase px-2 py-1 rounded mb-2">{image.tags[0]}</span>
+                {item.tags && item.tags.length > 0 &&
+                    <span className="inline-block bg-mun-green text-white text-xs font-bold uppercase px-2 py-1 rounded mb-2">{item.tags[0]}</span>
                 }
-                <p className="font-semibold text-base text-white drop-shadow-md truncate">{image.caption}</p>
+                <p className="font-semibold text-base text-white drop-shadow-md truncate">{item.caption}</p>
+                 {item.credit && (
+                    <div className="flex items-center gap-1.5 mt-1 text-xs text-gray-200 opacity-90">
+                        <CameraIcon className="w-3.5 h-3.5" />
+                        <span>{item.credit}</span>
+                    </div>
+                )}
             </div>
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out bg-black/40">
-                <ExpandIcon className="w-12 h-12 text-white/90 drop-shadow-lg" />
+                 {item.type === 'image' 
+                    ? <ExpandIcon className="w-12 h-12 text-white/90 drop-shadow-lg" />
+                    : <PlayIcon className="w-16 h-16 text-white/90 drop-shadow-lg" />
+                }
             </div>
         </div>
     );
 };
 
 const Lightbox: React.FC<{
-    images: GalleryImage[];
+    items: GalleryItem[];
     currentIndex: number;
     onClose: () => void;
     onNext: () => void;
     onPrev: () => void;
     isMobile: boolean;
-}> = ({ images, currentIndex, onClose, onNext, onPrev, isMobile }) => {
-    const [isImageLoading, setIsImageLoading] = useState(true);
+}> = ({ items, currentIndex, onClose, onNext, onPrev, isMobile }) => {
+    const [isMediaLoading, setIsMediaLoading] = useState(true);
     const [isClosing, setIsClosing] = useState(false);
 
     useEffect(() => {
-        setIsImageLoading(true);
+        setIsMediaLoading(true);
     }, [currentIndex]);
 
     const handleClose = useCallback(() => {
@@ -86,12 +160,23 @@ const Lightbox: React.FC<{
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [handleClose, onNext, onPrev]);
 
-    if (currentIndex < 0 || currentIndex >= images.length) {
+    if (currentIndex < 0 || currentIndex >= items.length) {
         handleClose();
         return null;
     }
     
-    const currentImage = images[currentIndex];
+    const currentItem = items[currentIndex];
+
+    const getGoogleDriveEmbedUrl = (url: string): string | null => {
+        const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+        if (match && match[1]) {
+            return `https://drive.google.com/file/d/${match[1]}/preview`;
+        }
+        return null;
+    };
+
+    const googleDriveEmbedUrl = getGoogleDriveEmbedUrl(currentItem.src);
+    const isGoogleDriveVideo = currentItem.type === 'video' && googleDriveEmbedUrl;
 
     return (
         <div
@@ -163,22 +248,46 @@ const Lightbox: React.FC<{
             
             <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-16" onClick={(e) => e.stopPropagation()}>
                 <div className="relative animate-lightbox-enter flex-grow flex items-center justify-center w-full">
-                    {isImageLoading && (
+                    {isMediaLoading && (
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
                         </div>
                     )}
-                    <img
-                        key={currentIndex}
-                        src={currentImage.src}
-                        alt={currentImage.caption}
-                        onLoad={() => setIsImageLoading(false)}
-                        className={`max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
-                    />
+                    {currentItem.type === 'image' ? (
+                        <img
+                            key={currentIndex}
+                            src={currentItem.src}
+                            alt={currentItem.caption}
+                            onLoad={() => setIsMediaLoading(false)}
+                            className={`max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
+                        />
+                    ) : isGoogleDriveVideo ? (
+                        <iframe
+                            key={currentIndex}
+                            src={googleDriveEmbedUrl!}
+                            title={currentItem.caption}
+                            onLoad={() => setIsMediaLoading(false)}
+                            className={`w-full max-w-5xl aspect-video bg-black border-none rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
+                            allow="autoplay"
+                            allowFullScreen
+                        ></iframe>
+                    ) : (
+                        <video
+                            key={currentIndex}
+                            src={currentItem.src}
+                            controls
+                            autoPlay
+                            muted
+                            onLoadedData={() => setIsMediaLoading(false)}
+                            className={`max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                    )}
                 </div>
-                <div className={`w-full p-4 transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}>
-                    <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg max-w-2xl mx-auto">
-                        <p className="text-base md:text-lg font-medium text-white text-center drop-shadow-md">{currentImage.caption}</p>
+                <div className={`w-full p-4 transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}>
+                    <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg max-w-2xl mx-auto text-center">
+                        <p className="text-base md:text-lg font-medium text-white drop-shadow-md">{currentItem.caption}</p>
                     </div>
                     {isMobile && (
                         <div className="flex justify-center items-center gap-8 mt-4">
@@ -206,23 +315,23 @@ const Lightbox: React.FC<{
 
 const GalleryPage: React.FC = () => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentItemIndex, setCurrentItemIndex] = useState(0);
     const [activeFilter, setActiveFilter] = useState('All');
-    const [filteredImages, setFilteredImages] = useState<GalleryImage[]>(GALLERY_IMAGES);
+    const [filteredItems, setFilteredItems] = useState<GalleryItem[]>(GALLERY_ITEMS);
     const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
     const { width } = useWindowSize();
     const isMobile = width < 768;
 
     useEffect(() => {
         if (activeFilter === 'All') {
-            setFilteredImages(GALLERY_IMAGES);
+            setFilteredItems(GALLERY_ITEMS);
         } else {
-            setFilteredImages(GALLERY_IMAGES.filter(img => img.tags.includes(activeFilter)));
+            setFilteredItems(GALLERY_ITEMS.filter(item => item.tags.includes(activeFilter)));
         }
     }, [activeFilter]);
 
     const openLightbox = (index: number) => {
-        setCurrentImageIndex(index);
+        setCurrentItemIndex(index);
         setLightboxOpen(true);
         document.body.style.overflow = 'hidden';
     };
@@ -232,13 +341,13 @@ const GalleryPage: React.FC = () => {
         document.body.style.overflow = 'auto';
     }, []);
 
-    const nextImage = useCallback(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % filteredImages.length);
-    }, [filteredImages.length]);
+    const nextItem = useCallback(() => {
+        setCurrentItemIndex((prev) => (prev + 1) % filteredItems.length);
+    }, [filteredItems.length]);
 
-    const prevImage = useCallback(() => {
-        setCurrentImageIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
-    }, [filteredImages.length]);
+    const prevItem = useCallback(() => {
+        setCurrentItemIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
+    }, [filteredItems.length]);
 
     return (
         <>
@@ -271,10 +380,10 @@ const GalleryPage: React.FC = () => {
                     </div>
 
                     <div className="columns-1 sm:columns-2 md:columns-3 xl:columns-4 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
-                        {filteredImages.map((image, index) => (
+                        {filteredItems.map((item, index) => (
                             <GalleryCard
-                                key={image.src}
-                                image={image}
+                                key={`${item.src}-${index}`}
+                                item={item}
                                 onClick={() => openLightbox(index)}
                             />
                         ))}
@@ -284,11 +393,11 @@ const GalleryPage: React.FC = () => {
 
             {lightboxOpen && (
                 <Lightbox
-                    images={filteredImages}
-                    currentIndex={currentImageIndex}
+                    items={filteredItems}
+                    currentIndex={currentItemIndex}
                     onClose={closeLightbox}
-                    onNext={nextImage}
-                    onPrev={prevImage}
+                    onNext={nextItem}
+                    onPrev={prevItem}
                     isMobile={isMobile}
                 />
             )}

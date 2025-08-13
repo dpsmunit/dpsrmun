@@ -41,11 +41,11 @@ const SecretaryGeneralNote = () => {
                 <div className="relative bg-white rounded-xl shadow-lg p-2">
                     <img
                       src={assetPaths.sgNote}
-                      alt="Aradhya Chauhan, Secretary-General"
+                      alt="<name>, Secretary-General"
                       className="w-full h-auto object-cover rounded-lg"
                     />
                     <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full rounded-b-lg">
-                        <h4 className="font-bold text-lg text-white">Aradhya Chauhan</h4>
+                        <h4 className="font-bold text-lg text-white"></h4>
                         <p className="text-sm text-mun-soft-green">Secretary-General</p>
                     </div>
                 </div>

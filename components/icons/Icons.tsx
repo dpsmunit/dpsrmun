@@ -7,7 +7,7 @@ export const CalendarIcon = ({ className = 'w-10 h-10' }: { className?: string }
 );
 
 export const LocationIcon = ({ className = 'w-10 h-10' }: { className?: string }) => (
-  <img src="https://i.ibb.co/DHCbCwRH/colored-logo-15.png " alt="Location Icon" className={className} />
+  <img src="./images/location.png " alt="Location Icon" className={className} />
 
 );
 
@@ -67,13 +67,13 @@ export const ChatBubbleIcon = ({ className = 'w-6 h-6' }: { className?: string }
 
 export const MailIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25-2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
     </svg>
 );
 
 export const PhoneIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 6.75z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
     </svg>
 );
 
@@ -84,34 +84,60 @@ export const MenuIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
 );
 
 export const PublicSpeakingIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
-  <img src="https://i.ibb.co/LzbcFWVs/colored-logo-8.png" alt="Public Speaking Icon" className={className} />
+  <img src="/images/public_speaking.png" alt="Public Speaking Icon" className={className} />
 
 );
 
 export const LeadershipIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
-  <img src="https://i.ibb.co/s9fWFpkX/colored-logo-9.png" alt="Leadership Icon" className={className} />
+  <img src="/images/leadership.png" alt="Leadership Icon" className={className} />
 
 );
 
 export const DiplomacyIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
-  <img src="https://i.ibb.co/8DKGtM10/colored-logo-10.png" alt="Diplomacy Icon" className={className} />
+  <img src="/images/diplomacy.png" alt="Diplomacy Icon" className={className} />
 
 );
 
 export const NetworkingIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
-  <img src="https://i.ibb.co/5XS0tDTk/colored-logo-11.png" alt="Networking Icon" className={className} />
+  <img src="/images/Network.png" alt="Networking Icon" className={className} />
 
 );
 
 export const CriticalThinkingIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
-  <img src="https://i.ibb.co/9k6LG0g7/colored-logo-12.png" alt="Critical Thinking Icon" className={className} />
+  <img src="/images/Critical_Thinking.png" alt="Critical Thinking Icon" className={className} />
 
 );
 
 export const ProblemSolvingIcon = ({ className = 'w-12 h-12' }: { className?: string }) => (
- <img src="https://i.ibb.co/FLf9LyZM/colored-logo-13.png" alt="Problem Solving Icon" className={className} />
+ <img src="/images/idea.png" alt="Problem Solving Icon" className={className} />
 );
 
 export const ExpandIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
-  <img src="https://i.ibb.co/V0ybZTsJ/output-onlinepngtools.png" alt="Expand Icon" className={className} />
+  <img src="/images/expand.png" alt="Expand Icon" className={className} />
 );
+
+
+export const LinkIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+    </svg>
+);
+
+export const BulletIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clipRule="evenodd" />
+    </svg>
+);
+
+export const PlayIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zM9.375 8.75a.75.75 0 00-1.125.63v6.24a.75.75 0 001.125.63l5.25-3.12a.75.75 0 000-1.26l-5.25-3.12z" clipRule="evenodd" />
+    </svg>
+);
+
+export const CameraIcon = ({ className = 'w-6 h-6' }: { className?: string }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className={className}>
+        <path d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 384c-53 0-96-43-96-96s43-96 96-96s96 43 96 96s-43 96-96 96z"/>
+    </svg>
+);
+

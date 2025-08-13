@@ -22,7 +22,7 @@ const suggestions = [
   "What committees are beginner-friendly?",
   "Tell me about the UNSC committee.",
   "How do I register?",
-  "What is the dress code?",
+  "Is the fee refundable?",
 ];
 
 const Chatbot = () => {
@@ -47,7 +47,7 @@ const Chatbot = () => {
         const welcomeMessage: ChatMessage = {
             id: `ai-init-${Date.now()}`,
             sender: 'ai',
-            text: "Hello! I am Sachi, your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
+            text: "Hello! I am DiploBot, your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
         };
         setMessages([welcomeMessage]);
         setShowSuggestions(true);
@@ -124,7 +124,7 @@ const Chatbot = () => {
           <header className="flex justify-between items-center p-5 border-b border-gray-200/80 bg-gray-50/70 rounded-t-2xl flex-shrink-0">
              <div className="flex items-center gap-4">
                  <SachiAvatar />
-                 <h3 className="font-bold text-xl text-mun-dark-text">Sachi, your MUN Helper</h3>
+                 <h3 className="font-bold text-xl text-mun-dark-text">DiploBot, your MUN Helper</h3>
             </div>
             <button onClick={handleToggle} className="text-gray-500 hover:text-mun-dark-text transition-colors" aria-label="Close chat">
               <CloseIcon className="w-7 h-7" />

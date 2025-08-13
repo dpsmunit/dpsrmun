@@ -3,9 +3,7 @@ import Team from '../components/Team';
 
 const SecretariatPage: React.FC = () => {
   return (
-    <div>
-      <Team />
-    </div>
+    <Team />
   );
 };
 

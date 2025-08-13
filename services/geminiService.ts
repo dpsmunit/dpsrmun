@@ -99,7 +99,7 @@ const createChatSession = async (aiInstance: GoogleGenAI, keyIndex: number): Pro
         temperature: 0.7,
         topP: 0.8,
         topK: 40,
-        maxOutputTokens: 1024,
+        maxOutputTokens: 500,
       },
     });
     

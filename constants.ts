@@ -7,7 +7,7 @@ export const HIGHLIGHTS = [
   {
     icon: CalendarIcon,
     title: 'Dates',
-    description: 'Oct 12-12, 2-25'
+    description: 'Oct 11-12 , 2025'
   },
   {
     icon: LocationIcon,
@@ -21,7 +21,7 @@ export const HIGHLIGHTS = [
   },
   {
     icon: GlobeIcon,
-    title: '800+ Delegates',
+    title: 'X+ Delegates',
     description: 'Global Representation',
   },
 ];
@@ -61,61 +61,61 @@ export const WHY_JOIN_POINTS: WhyJoinPoint[] = [
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: 'Aradhya Chauhan',
+    name: '<name>',
     role: 'Secretary-General',
     avatarUrl: assetPaths.aradhyaChauhan,
     bio: 'Guiding the conference with a vision for future diplomacy and impactful dialogue.'
   },
   {
-    name: 'Priya Singh',
+    name: '<name>',
     role: 'Director-General',
     avatarUrl: assetPaths.priyaSingh,
     bio: 'Overseeing all operational aspects to ensure a seamless and enriching delegate experience.'
   },
   {
-    name: 'Rohan Mehta',
+    name: '<name>',
     role: 'USG, Technology',
     avatarUrl: assetPaths.rohanMehta,
     bio: 'Integrating cutting-edge technology to create an immersive and futuristic MUN.'
   },
    {
-    name: 'Anika Reddy',
+    name: '<name>',
     role: 'USG, Delegate Affairs',
     avatarUrl: assetPaths.anikaReddy,
     bio: 'Dedicated to providing comprehensive support and guidance to all participating delegates.'
   },
   {
-    name: 'Kavya Menon',
+    name: '<name>',
     role: 'USG, Finance',
     avatarUrl: assetPaths.kavyaMenon,
     bio: 'Managing the financial framework to ensure a sustainable and high-quality conference.'
   },
   {
-    name: 'Arjun Desai',
+    name: '<name>',
     role: 'USG, Communications',
     avatarUrl: assetPaths.arjunDesai,
     bio: 'Leading our outreach and media strategy to connect with delegates globally.'
   },
   {
-    name: 'Saanvi Gupta',
+    name: '<name>',
     role: 'USG, Logistics',
     avatarUrl: assetPaths.saanviGupta,
     bio: 'Orchestrating the on-ground experience, from venues to delegate resources.'
   },
   {
-    name: 'Ishaan Patel',
+    name: '<name>',
     role: 'USG, Social Events',
     avatarUrl: assetPaths.ishaanPatel,
     bio: 'Curating unforgettable social events that foster networking and camaraderie.'
   },
   {
-    name: 'Myra Kumar',
+    name: '<name>',
     role: 'USG, Design',
     avatarUrl: assetPaths.myraKumar,
     bio: 'Crafting the visual identity and aesthetic of the DPSR MUN 2025 conference.'
   },
   {
-    name: 'Vikram Singh',
+    name: '<name>',
     role: 'Chief of Staff',
     avatarUrl: assetPaths.vikramSingh,
     bio: 'Ensuring seamless coordination and synergy across all departments of the Secretariat.'
@@ -125,7 +125,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
 export const FAQS: FaqItem[] = [
   {
     question: 'What is the vision of DPSR MUN 2025?',
-    answer: 'Our vision is to forge a new paradigm in Model UN, focusing on **Diplomacy, Dialogue, and Direction**. We aim to create a platform that not only simulates global committees but also inspires delegates to become future leaders and changemakers.',
+    answer: 'Our vision is to forge a new paradigm in Model UN, focusing on Diplomacy, Dialogue, and Direction. We aim to create a platform that not only simulates global committees but also inspires delegates to become future leaders and changemakers.',
   },
   {
     question: 'Are beginners welcome to participate?',

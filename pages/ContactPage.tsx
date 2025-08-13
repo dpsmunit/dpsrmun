@@ -31,9 +31,9 @@ const ContactPage: React.FC = () => {
                     <a href="mailto:piccoloeventsofficial@gmail.com" className="block hover:text-mun-green hover:underline transition-colors">piccoloeventsofficial@gmail.com</a>
                 </ContactInfo>
                 <ContactInfo icon={PhoneIcon} title="Call Us">
-                    <a href="tel:+917087207070" className="block hover:text-mun-green hover:underline transition-colors">+91 70872-07070</a>
-                    <a href="tel:+917347541031" className="block hover:text-mun-green hover:underline transition-colors">+91 73475-41031</a>
-                    <a href="tel:+917456895635" className="block hover:text-mun-green hover:underline transition-colors">+91 74568-95635</a>
+                    <a href="tel:+917087207070" className="block hover:text-mun-green hover:underline transition-colors">+91 7087207070</a>
+                    <a href="tel:+917347541031" className="block hover:text-mun-green hover:underline transition-colors">+91 7347541031</a>
+                    <a href="tel:+917456895635" className="block hover:text-mun-green hover:underline transition-colors">+91 7456895635</a>
                 </ContactInfo>
             </div>
         </div>

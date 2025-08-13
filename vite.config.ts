@@ -9,9 +9,13 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'), // Adjusted to point to 'src' directory
+        '@': path.resolve(__dirname, './src'),
       },
     },
-   
+    server: {
+      allowedHosts: [
+        'jm-mutual-stuff-gui.trycloudflare.com',
+      ],
+    },
   };
 });
