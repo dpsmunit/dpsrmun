@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
     return (
         <>
             <Hero />
-            <SecretaryGeneralNote />
+         
             <Highlights />
             <Countdown />
             <WhyJoin />
