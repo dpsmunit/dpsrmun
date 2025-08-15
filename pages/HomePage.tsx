@@ -47,7 +47,7 @@ const SecretaryGeneralNote = () => {
                       className="w-full h-auto object-cover rounded-lg"
                     />
                     <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full rounded-b-lg">
-                        <h4 className="font-bold text-lg text-white">Aradhya Chauhan</h4>
+                        <h4 className="font-bold text-lg text-white"><name></h4>
                         <p className="text-sm text-mun-soft-green">Secretary-General</p>
                     </div>
                 </div>
