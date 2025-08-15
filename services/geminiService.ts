@@ -1,11 +1,11 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-const API_KEYS = [];
-let i = 1;
-while (process.env[`GEM${i}`]) {
-  API_KEYS.push(process.env[`GEM${i}`].trim());
-  i++;
-}
+const API_KEYS = [
+  "AIzaSyBurETbQFkvTQtnCypMmwmOH4h4QuFIbFU",
+  "AIzaSyA8stqKIOC3H1rb5sHuS0_dmxNYof3utT8",
+  "AIzaSyCpFlhdmvMa5Rp9AQvRBBAnZB0Iv5ageR0"
+  // Add more API keys as needed
+];
 
 interface ApiKeyStatus {
   index: number;
