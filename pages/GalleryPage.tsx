@@ -65,11 +65,23 @@ const GALLERY_ITEMS = [
 
 
   // Images from the 'images' directory
-  { type: 'image', src: './dps/IMG-20250625-WA0001.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-  { type: 'image', src: './dps/IMG-20250625-WA0002.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-  { type: 'image', src: './dps/IMG-20250625-WA0003.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-  { type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  //{ type: 'image', src: './images/photos/img4.avif', thumbnailSrc: '', caption: 'Delegates doing ', tags: ['Image'] },
+
+  //{ type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+   { type: 'image', src: './images/photos/img6.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+
+   { type: 'image', src: './images/photos/img8.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  { type: 'image', src: './images/photos/img9.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+   { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+
+   { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+  
 ];
+
+
+
+
+
 
 
 const allTags = ['All', ...Array.from(new Set(GALLERY_ITEMS.flatMap(img => img.tags)))];

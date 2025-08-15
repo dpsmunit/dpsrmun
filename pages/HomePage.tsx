@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
@@ -5,6 +6,7 @@ import WhyJoin from '../components/WhyJoin';
 import Faq from '../components/Faq';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { assetPaths } from '../assets';
+import Countdown from '../components/Countdown';
 
 const SecretaryGeneralNote = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
@@ -41,11 +43,11 @@ const SecretaryGeneralNote = () => {
                 <div className="relative bg-white rounded-xl shadow-lg p-2">
                     <img
                       src={assetPaths.sgNote}
-                      alt="<name>, Secretary-General"
+                      alt="Aradhya Chauhan, Secretary-General"
                       className="w-full h-auto object-cover rounded-lg"
                     />
                     <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full rounded-b-lg">
-                        <h4 className="font-bold text-lg text-white"></h4>
+                        <h4 className="font-bold text-lg text-white">Aradhya Chauhan</h4>
                         <p className="text-sm text-mun-soft-green">Secretary-General</p>
                     </div>
                 </div>
@@ -63,6 +65,7 @@ const HomePage: React.FC = () => {
             <Hero />
             <SecretaryGeneralNote />
             <Highlights />
+            <Countdown />
             <WhyJoin />
             <Faq />
         </>
