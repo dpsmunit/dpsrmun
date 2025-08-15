@@ -1,8 +1,6 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-// Hardcoded API keys - add your keys here
 const API_KEYS = [];
-
 let i = 1;
 while (process.env[`GEM${i}`]) {
   API_KEYS.push(process.env[`GEM${i}`].trim());
