@@ -8,7 +8,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { assetPaths } from '../assets';
 import Countdown from '../components/Countdown';
 
-// const SecretaryGeneralNote = () => {
+ const SecretaryGeneralNote = () => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -57,7 +57,7 @@ import Countdown from '../components/Countdown';
       </div>
     </section>
   );
-};
+}; 
 
 const HomePage: React.FC = () => {
     return (
