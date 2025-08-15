@@ -63,7 +63,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: '<name>',
     role: 'Secretary-General',
-    avatarUrl: assetPaths.aradhyaChauhan,
+    avatarUrl: assetPaths.x,
     bio: 'Guiding the conference with a vision for future diplomacy and impactful dialogue.'
   },
   {
