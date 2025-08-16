@@ -39,7 +39,7 @@ const AboutPage: React.FC = () => {
                         <div className="relative h-96 hidden lg:block">
                             <div className="absolute inset-0 bg-mun-soft-green rounded-full blur-3xl"></div>
                             <img src={assetPaths.aboutVision} alt="Delegates in discussion" className="relative ml-auto w-4/5 h-4/5 object-cover rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 -rotate-3"/>
-                            <img src={assetPaths.aboutFuture} alt="A globe representing international relations" className="absolute bottom-0 left-0 w-4/5 h-4/5 object-cover rounded-2xl shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-500 rotate-3"/>
+                            <img src={assetPaths.aboutFuture} alt="A globe representing international relations" className="absolute bottom-0 left-0 w-1/2 h-1/2 object-cover rounded-2xl shadow-2xl border-4 border-white transform hover:scale-105 transition-transform duration-500 rotate-3"/>
                         </div>
                     </div>
                 </div>
