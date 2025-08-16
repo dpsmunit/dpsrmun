@@ -16,7 +16,7 @@ export const assetPaths = {
  // vikramSingh: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg',
 
     // Page specific images
-    aboutVision: '',
+    aboutVision: '/images/photos/imgdel_disc.avif',
    aboutFuture: '',
    sgNote: 'https://i.ibb.co/5WLRJyCx/.jpg',
 };
