@@ -17,6 +17,6 @@ export const assetPaths = {
 
     // Page specific images
     aboutVision: '/images/photos/imgdel_disc.avif',
-   aboutFuture: '',
+   aboutFuture: '/images/photos/imgglobal.avif',
    sgNote: 'https://i.ibb.co/5WLRJyCx/.jpg',
 };
