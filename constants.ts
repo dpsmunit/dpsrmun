@@ -139,7 +139,7 @@ export const FAQS: FaqItem[] = [
     question: 'How can I contact the organizing committee?',
     answer: React.createElement('p', null, 
       'For any inquiries, please feel free to reach out to us via email at ',
-      React.createElement('a', { href: 'mailto:contact@dpsrmun.org', className: 'text-mun-green font-semibold hover:underline' }, 'contact@dpsrmun.org'),
+      React.createElement('a', { href: 'mailto:dpsmun.2025@gmail.com', className: 'text-mun-green font-semibold hover:underline' }, 'dpsmun.2025@gmail.com'),
       ' or connect with us on our social media platforms.'
     ),
   },
