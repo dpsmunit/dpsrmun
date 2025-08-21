@@ -1,115 +1,66 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-// No changes are needed for the AnimatedDigit component.
-const AnimatedDigit = ({ digit }: { digit: string }) => {
-    return (
-        // The container defines the "window" for the sliding digit
-        <span className="relative inline-block h-12 w-8 sm:h-16 sm:w-10 overflow-hidden align-middle">
-            <span
-                key={digit}
-                className="absolute inset-0 flex items-center justify-center animate-slide-in text-4xl sm:text-5xl font-mono font-bold text-white tracking-wider"
-            >
-                {digit}
-            </span>
-            <style>{`
-                @keyframes slide-in {
-                    from { transform: translateY(-100%); opacity: 0; }
-                    to { transform: translateY(0); opacity: 1; }
-                }
-                .animate-slide-in {
-                    animation: slide-in 0.5s ease-out forwards;
-                }
-            `}</style>
-        </span>
-    );
-};
-
-// The TimeUnit component is completely redesigned for the new look.
-const TimeUnit = ({ value, label }: { value: number; label: string }) => {
-    const formattedValue = value.toString().padStart(2, '0');
-
-    return (
-        // Main circular container for each time unit
-        <div className="relative flex flex-col items-center justify-center w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gray-800/40 border border-mun-green/30 backdrop-blur-md shadow-lg shadow-mun-green/10">
-            {/* Flex container for the two digits */}
-            <div className="flex">
-                <AnimatedDigit digit={formattedValue[0]} />
-                <AnimatedDigit digit={formattedValue[1]} />
-            </div>
-            {/* The label is now positioned inside the circle */}
-            <span className="absolute bottom-6 sm:bottom-8 text-xs sm:text-sm font-light uppercase tracking-widest text-mun-green">
-                {label}
-            </span>
-        </div>
-    );
-};
-
+const TimeBlock = ({ value, label }: { value: number; label: string }) => (
+  <div className="flex flex-col items-center">
+    {/* Adjusted width and height for a smaller container */}
+    <div className="relative w-16 h-20 sm:w-24 sm:h-28 md:w-28 md:h-32 flex items-center justify-center bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-gray-100"></div>
+      {/* Reduced font size at all breakpoints */}
+      <span className="relative text-4xl sm:text-6xl md:text-7xl font-bold text-mun-dark-text" style={{ letterSpacing: '0.05em' }}>
+        {value.toString().padStart(2, '0')}
+      </span>
+    </div>
+    <p className="mt-4 text-sm sm:text-base font-semibold text-gray-500 uppercase tracking-widest">{label}</p>
+  </div>
+);
 
 const Countdown = () => {
-    const targetDate = useMemo(() => new Date('2025-10-11T00:00:00'), []);
-    const { ref: scrollRef, isVisible } = useScrollAnimation<HTMLElement>();
+  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-    // Using the more accurate and standard countdown logic
-    const calculateTimeLeft = useCallback(() => {
-        const difference = +targetDate - +new Date();
-        let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0, total: difference };
+  useEffect(() => {
+    const targetDate = new Date('2025-10-24T09:00:00').getTime();
 
-        if (difference > 0) {
-            timeLeft = {
-                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                minutes: Math.floor((difference / 1000 / 60) % 60),
-                seconds: Math.floor((difference / 1000) % 60),
-                total: difference
-            };
-        }
-        return timeLeft;
-    }, [targetDate]);
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
 
-    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+      if (distance < 0) {
+        clearInterval(interval);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        setTimeLeft({ days, hours, minutes, seconds });
+      }
+    }, 1000);
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
-        }, 1000);
-        return () => clearInterval(timer);
-    }, [calculateTimeLeft]);
+    return () => clearInterval(interval);
+  }, []);
 
-    if (timeLeft.total <= 0) {
-        return null;
-    }
-
-    return (
-        <section
-            id="countdown"
-            ref={scrollRef}
-            className={`pt-16 sm:pt-24 pb-0 bg-gray-900 text-white relative overflow-hidden transition-all duration-1000 ease-in-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-        >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
-                        The Journey <span className="text-mun-green">Begins</span>
-                    </h2>
-                    <p className="text-base sm:text-lg text-gray-300 max-w-xl sm:max-w-2xl mx-auto">
-                        The countdown to an unparalleled diplomatic experience has started. Mark your calendars for DPSR MUN 2025.
-                    </p>
-                </div>
-
-                {/* Redesigned Countdown Grid - No more colon separators needed */}
-                <div className="flex justify-center items-center flex-wrap gap-4 sm:gap-8 lg:gap-10 mb-16 sm:mb-20">
-                    <TimeUnit value={timeLeft.days} label="Days" />
-                    <TimeUnit value={timeLeft.hours} label="Hours" />
-                    <TimeUnit value={timeLeft.minutes} label="Minutes" />
-                    <TimeUnit value={timeLeft.seconds} label="Seconds" />
-                </div>
-            </div>
-
-            <div className="w-full h-0.5 bg-mun-green shadow-[0_0_10px_rgba(29,185,84,0.5)]"></div>
-        </section>
-    );
+  return (
+    <section className="bg-gray-50/50 py-24 sm:py-32 border-y border-gray-200/80">
+      <div ref={ref} className={`container mx-auto px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-mun-dark-text">
+            Conference <span className="text-mun-green">Countdown</span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            The countdown to a new era of diplomacy has begun.
+          </p>
+        </div>
+        <div className="flex justify-center items-center gap-4 sm:gap-8">
+          <TimeBlock value={timeLeft.days} label="Days" />
+          <TimeBlock value={timeLeft.hours} label="Hours" />
+          <TimeBlock value={timeLeft.minutes} label="Minutes" />
+          <TimeBlock value={timeLeft.seconds} label="Seconds" />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Countdown;
