@@ -20,7 +20,7 @@ const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date('2025-10-24T09:00:00').getTime();
+    const targetDate = new Date('2025-10-26T09:00:00').getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
