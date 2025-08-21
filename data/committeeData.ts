@@ -142,7 +142,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Crisis',
         about: "CCC represents the ultimate test of MUN skills, simulating real-world crisis management where situations evolve rapidly and delegates must demonstrate leadership under extreme uncertainty and time pressure.",
         agendaPoints: ["Responding to real-time crisis updates.", "Managing resources and strategic assets through directives.", "Engaging in backroom diplomacy and high-stakes negotiations.", "Adapting national and coalition strategies as the situation evolves."],
-        resources: [{ title: 'Directive Writing Guide', url: '#'}, { title: 'Historical Crisis Case Studies', url: '#', description: 'Examples of past real-world crises.' }],
+        resources: [{ title: 'Crisis Case Studies', url: 'https://www.prio.org/research/topics/conflict-trends'}],
         members: []
     },
     {
@@ -230,7 +230,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Creative',
         about: "Using the dramatic backdrop of the Marvel Cinematic Universe, this committee tackles profound philosophical questions about utilitarianism, resource management, and ethics on a cosmic scale, challenging delegates to defend morally complex positions.",
         agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],
-        resources: [{ title: 'The Malthusian Theory of Population', url: 'https://www.investopedia.com/terms/m/malthusian-theory-of-population.asp', description: 'An economic theory on population growth.' }, { title: 'The Sokovia Accords', url: 'https://marvelcinematicuniverse.fandom.com/wiki/Sokovia_Accords', description: 'Framework for oversight of enhanced individuals.' }],
+        resources: [{ title: 'The Malthusian Theory of Population', url: 'https://www.investopedia.com/terms/m/malthusian-theory-of-population.asp', description: 'An economic theory on population growth.'}],
         members: []
     }
 ];
