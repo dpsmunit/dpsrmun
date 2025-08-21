@@ -12,7 +12,7 @@ import Countdown from '../components/Countdown';
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <section id="sg-note" className="py-24 sm:py-32 bg-white">
+    <section id="sg-note" className="py-24 sm:py-32 bg-mun-white">
       <div
         ref={ref}
         className={`container mx-auto px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
@@ -25,16 +25,16 @@ import Countdown from '../components/Countdown';
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
                 Esteemed Delegates, Advisors, and future leaders,
-              </p>
+              </p className="text-justify">
               <p>
                 It is with immense pride and great anticipation that I welcome you to the 2025 edition of the DPSR Model United Nations. In a world fraught with complexities and unprecedented challenges, the need for articulate, informed, and compassionate leadership has never been more critical. This conference is more than a simulation; it is a crucible where ideas are forged, perspectives are challenged, and the diplomats of tomorrow are born.
-              </p>
+              </p className="text-justify">
               <p>
                 Our secretariat has worked tirelessly to prepare a conference that is not only intellectually stimulating but also deeply engaging. We have curated a diverse array of committees to tackle issues ranging from global security to sustainable development and human rights. Here, your voice matters, your research is vital, and your ability to collaborate will determine your success.
               </p>
               <p>
                 I urge you to step into your roles with conviction, to debate with respect, and to seek consensus with an open mind. Let DPSR MUN 2025 be the platform where you discover your potential and begin your journey as a global changemaker.
-              </p>
+              </p className="text-justify">
             </div>
           </div>
           <div className="lg:col-span-2 flex flex-col items-center justify-center group">
@@ -63,7 +63,7 @@ const HomePage: React.FC = () => {
     return (
         <>
             <Hero />
-         
+            <SecretaryGeneralNote />
             <Highlights />
             <Countdown />
             <WhyJoin />
