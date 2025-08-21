@@ -72,6 +72,7 @@ const GALLERY_ITEMS = [
   { type: 'image', src: './images/photos/img9.avif', thumbnailSrc: '', caption: 'Opening Ceremony', tags: ['Image'] },
    { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Opening Ceremony', tags: ['Image'] },
     { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/img15.avif', thumbnailSrc: '', caption: 'BCCI', tags: ['Image'] }
 ];
 
 
