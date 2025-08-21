@@ -205,7 +205,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Media',
         about: "The International Press is the nexus of information and diplomacy, offering delegates a unique role in observing, analyzing, and shaping the narrative of the entire conference, developing critical media literacy and ethical reporting skills.",
         agendaPoints: ["Maintaining journalistic objectivity while covering emotive and polarizing topics.", "Combating the spread of misinformation and disinformation within committee debates.", "Balancing the public's right to know with national security concerns.", "The ethics of reporting on crises and vulnerable populations without exploitation."],
-        resources: [{ title: 'Introduction To IP', url: 'https://www.youtube.com/watch?v=1RUuVEKJ5u0', description: ' '}],
+        resources: [{ title: 'Introduction To IP', url: 'https://www.youtube.com/watch?v=1RUuVEKJ5u0', description: 'Journalism, Videography, Photography, Caricature'}],
         members: []
     },
     
@@ -230,7 +230,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Creative',
         about: "Using the dramatic backdrop of the Marvel Cinematic Universe, this committee tackles profound philosophical questions about utilitarianism, resource management, and ethics on a cosmic scale, challenging delegates to defend morally complex positions.",
         agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],
-        resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: ''}],
+        resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
         members: []
     }
 ];
