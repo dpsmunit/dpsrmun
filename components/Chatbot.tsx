@@ -5,7 +5,7 @@ import { streamMessage } from '../services/geminiService';
 import { PaperAirplaneIcon, CloseIcon, ChatBubbleIcon } from './icons/Icons';
 import useWindowSize from '../hooks/useWindowSize';
 
-const SachiAvatar = ({ className = 'w-10 h-10' }: { className?: string }) => (
+const DiploBotAvatar = ({ className = 'w-10 h-10' }: { className?: string }) => (
     <div className={`${className} rounded-full bg-gradient-to-br from-mun-green to-green-400 flex-shrink-0 flex items-center justify-center text-white font-bold text-base shadow-md`}>
       S
     </div>
@@ -28,7 +28,7 @@ const suggestions = [
 
 const GeneratingIndicator = () => (
     <div className="flex items-center gap-2 px-2 py-1">
-        <span className="text-sm text-gray-500 font-medium">Sachi is thinking...</span>
+        <span className="text-sm text-gray-500 font-medium">DiploBot is thinking...</span>
         <div className="flex items-center gap-1">
             <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
             <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.15s'}}></span>
@@ -61,7 +61,7 @@ const Chatbot = () => {
         const welcomeMessage: ChatMessage = {
             id: `ai-init-${Date.now()}`,
             sender: 'ai',
-            text: "Hello! I am Sachi, your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
+            text: "Hello! I am , your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
         };
         setMessages([welcomeMessage]);
         setShowSuggestions(true);
@@ -150,8 +150,8 @@ const Chatbot = () => {
         <div className="bg-white rounded-2xl w-full h-full flex flex-col shadow-2xl border border-gray-200/80">
           <header className="flex justify-between items-center p-5 border-b border-gray-200/80 bg-gray-50/70 rounded-t-2xl flex-shrink-0">
              <div className="flex items-center gap-4">
-                 <SachiAvatar />
-                 <h3 className="font-bold text-xl text-mun-dark-text">Sachi, your MUN Helper</h3>
+                 <DiploBotAvatar />
+                 <h3 className="font-bold text-xl text-mun-dark-text">DiploBot, your MUN Helper</h3>
             </div>
             <button onClick={handleToggle} className="text-gray-500 hover:text-mun-dark-text transition-colors" aria-label="Close chat">
               <CloseIcon className="w-7 h-7" />
@@ -166,7 +166,7 @@ const Chatbot = () => {
                 
                 return (
                     <div key={msg.id} className={`flex items-end gap-3 message-enter ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    {msg.sender === 'ai' && <SachiAvatar />}
+                    {msg.sender === 'ai' && <DiploBotAvatar />}
                     <div className={`max-w-[80%] py-3 px-5 rounded-2xl ${msg.sender === 'user' ? 'bg-gradient-to-br from-mun-green to-green-600 text-white rounded-br-lg shadow-md' : 'bg-white text-mun-dark-text rounded-bl-lg shadow-sm border border-gray-200/50'}`}>
                         {msg.text === '__GENERATING__' ? (
                             <GeneratingIndicator />
