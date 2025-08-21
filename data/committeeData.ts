@@ -154,7 +154,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: "Int'l Law",
         about: "ICJ provides the highest level of legal training available in MUN, focusing on the world's most significant contemporary international law case with implications for global justice systems.",
         agendaPoints: ["Evaluating claims related to the violation of the Genocide Convention.", "Analyzing legal arguments concerning sovereignty, use of force, and territorial integrity.", "Assessing evidence presented by both parties to the court.", "Deliberating on potential reparations and legal remedies under international law."],
-        resources: [{ title: 'ICJ Statute', url: 'https://www.icj-cij.org/statute'},],
+        resources: [{ title: 'ICJ Statute', url: 'https://www.icj-cij.org/statute'}],
         members: []
     },
     {
@@ -190,7 +190,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Sports Governance',
         about: "The FIFA committee provides a critical platform to address systemic corruption in global sports, offering delegates the chance to design robust anti-corruption mechanisms and ensure transparency in one of the world's most influential organizations.",
         agendaPoints: ["Designing a transparent and accountable bidding process for host nations.", "Implementing stronger anti-corruption and ethics regulations within FIFA's structure.", "Addressing human rights and labor standards concerns in host countries.", "Ensuring the financial and environmental sustainability of future World Cups."],
-        resources: [{ title: 'FIFA Governance Regulations', url: 'https://digitalhub.fifa.com/m/1a78e72e52643a47/original/FIFA-Governance-Regulations-2023-edition.pdf'}]
+        resources: [{ title: 'FIFA Governance Regulations', url: 'https://digitalhub.fifa.com/m/1a78e72e52643a47/original/FIFA-Governance-Regulations-2023-edition.pdf'}],
         members: []
     },
     {
