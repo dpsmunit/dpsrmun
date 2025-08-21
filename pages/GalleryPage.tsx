@@ -77,8 +77,8 @@ const GALLERY_ITEMS = [
     { type: 'image', src: './images/photos/img17.avif', thumbnailSrc: '', caption: 'BCCI', tags: ['Image'] },
     { type: 'image', src: './images/photos/img18.avif', thumbnailSrc: '', caption: 'UNSCW', tags: ['Image'] },   
     { type: 'image', src: './images/photos/img19.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
-    { type: 'image', src: './images/photos/img20.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
-    { type: 'image', src: './images/photos/img21.avif', thumbnailSrc: '', caption: 'UNSC', tags: ['Image'] },
+    { type: 'image', src: './images/photos/img20.avif', thumbnailSrc: '', caption: 'UNSC', tags: ['Image'] },
+    { type: 'image', src: './images/photos/img21.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
     { type: 'image', src: './images/photos/img22.avif', thumbnailSrc: '', caption: 'Closing Ceremony', tags: ['Image'] },
     { type: 'image', src: './images/photos/img23.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] }
 ];
