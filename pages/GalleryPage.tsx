@@ -70,8 +70,8 @@ const GALLERY_ITEMS = [
   //{ type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
    { type: 'image', src: './images/photos/img6.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
   { type: 'image', src: './images/photos/img9.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-   { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-    { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+   { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
+    { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
 ];
 
 
