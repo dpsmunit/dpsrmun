@@ -10,6 +10,7 @@ import Chatbot from './components/Chatbot';
 import GalleryPage from './pages/GalleryPage';
 import CommitteeDetailsPage from './pages/CDP';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const routes: { [key: string]: React.ComponentType } = {
   '': HomePage,
@@ -101,6 +102,7 @@ const App: React.FC = () => {
       <Footer />
       <Chatbot />
       <Analytics /> 
+      <SpeedInsights />
     </div>
   );
 };
