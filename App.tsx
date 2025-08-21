@@ -101,14 +101,6 @@ const App: React.FC = () => {
       <Chatbot />
     </div>
   );
-  
-  function App({ Component, pageProps }) {
-  return (
-    <>
-      <Component {...pageProps} />
-      <Analytics />
-    </>
-  );
-}
+
 
 export default App;
