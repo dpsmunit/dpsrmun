@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import type { ChatMessage } from '../types';
 import { streamMessage } from '../services/geminiService';
@@ -22,18 +23,31 @@ const suggestions = [
   "What committees are beginner-friendly?",
   "Tell me about the UNSC committee.",
   "How do I register?",
-  "Is the fee refundable?",
+  "What is the dress code?",
 ];
+
+const GeneratingIndicator = () => (
+    <div className="flex items-center gap-2 px-2 py-1">
+        <span className="text-sm text-gray-500 font-medium">Sachi is thinking...</span>
+        <div className="flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span>
+            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.15s'}}></span>
+            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.3s'}}></span>
+        </div>
+    </div>
+);
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
   const isMobile = width < 768;
+
+  const shouldShowSuggestions = showSuggestions && width >= 375 && height >= 650;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -47,7 +61,7 @@ const Chatbot = () => {
         const welcomeMessage: ChatMessage = {
             id: `ai-init-${Date.now()}`,
             sender: 'ai',
-            text: "Hello! I am DiploBot, your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
+            text: "Hello! I am Sachi, your official guide for DPSR MUN 2025. How can I assist you? You can ask me anything or pick a suggestion below! 🌟"
         };
         setMessages([welcomeMessage]);
         setShowSuggestions(true);
@@ -68,7 +82,7 @@ const Chatbot = () => {
         const stream = await streamMessage(textToSend);
         let text = '';
         const aiMessageId = `ai-${Date.now()}`;
-        setMessages(prev => [...prev, { id: aiMessageId, sender: 'ai', text: '...' }]);
+        setMessages(prev => [...prev, { id: aiMessageId, sender: 'ai', text: '__GENERATING__' }]);
 
         for await (const chunk of stream) {
             text += chunk.text;
@@ -81,7 +95,7 @@ const Chatbot = () => {
             sender: 'ai',
             text: 'An error occurred. Please try again later.'
         };
-        setMessages(prev => [...prev, errorMessage]);
+        setMessages(prev => [...prev.filter(m => m.text !== '__GENERATING__'), errorMessage]);
     } finally {
         setIsLoading(false);
     }
@@ -100,6 +114,8 @@ const Chatbot = () => {
     return { __html: text.replace(/\n/g, '<br />') };
   };
 
+  const lastMessage = messages.length > 0 ? messages[messages.length - 1] : null;
+
   return (
     <>
       <style>{`
@@ -110,6 +126,17 @@ const Chatbot = () => {
         .message-enter {
           animation: enter 0.4s ease-out forwards;
         }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        }
+        .animate-bounce { animation: bounce 1s infinite; }
+        @keyframes blink-cursor {
+            50% { opacity: 0; }
+        }
+        .blinking-cursor {
+            animation: blink-cursor 1s step-end infinite;
+        }
       `}</style>
       <button
         onClick={handleToggle}
@@ -119,12 +146,12 @@ const Chatbot = () => {
         <ChatBubbleIcon className="w-8 h-8" />
       </button>
 
-      <div className={`fixed ${isMobile ? 'bottom-4 right-4' : 'bottom-8 right-8'} z-50 w-[calc(100vw-${isMobile ? '2rem' : '4rem'})] max-w-xl h-[75vh] max-h-[750px] flex flex-col transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16 pointer-events-none'}`}>
+      <div className={`fixed ${isMobile ? 'bottom-4 right-4' : 'bottom-8 right-8'} z-50 w-[min(calc(100vw-2rem),400px)] md:w-[450px] lg:w-[500px] h-[min(80vh,700px)] flex flex-col transition-all duration-500 ease-in-out ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16 pointer-events-none'}`}>
         <div className="bg-white rounded-2xl w-full h-full flex flex-col shadow-2xl border border-gray-200/80">
           <header className="flex justify-between items-center p-5 border-b border-gray-200/80 bg-gray-50/70 rounded-t-2xl flex-shrink-0">
              <div className="flex items-center gap-4">
                  <SachiAvatar />
-                 <h3 className="font-bold text-xl text-mun-dark-text">DiploBot, your MUN Helper</h3>
+                 <h3 className="font-bold text-xl text-mun-dark-text">Sachi, your MUN Helper</h3>
             </div>
             <button onClick={handleToggle} className="text-gray-500 hover:text-mun-dark-text transition-colors" aria-label="Close chat">
               <CloseIcon className="w-7 h-7" />
@@ -133,39 +160,35 @@ const Chatbot = () => {
 
           <main className="flex-1 p-6 overflow-y-auto bg-white" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0)', backgroundSize: '20px 20px' }}>
             <div className="flex flex-col gap-5">
-              {messages.map(msg => (
-                <div key={msg.id} className={`flex items-end gap-3 message-enter ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  {msg.sender === 'ai' && <SachiAvatar />}
-                  <div
-                    className={`max-w-[80%] py-3 px-5 rounded-2xl ${
-                      msg.sender === 'user'
-                        ? 'bg-gradient-to-br from-mun-green to-green-600 text-white rounded-br-lg shadow-md'
-                        : 'bg-white text-mun-dark-text rounded-bl-lg shadow-md border border-gray-300'
-                    }`}
-                  >
-                    {msg.text === '...' ? (
-                        <div className="flex items-center gap-1.5 p-1">
-                            <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"></span>
-                            <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></span>
-                            <span className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></span>
-                        </div>
-                    ) : (
-                        <div className={`prose prose-base max-w-none prose-p:my-2 ${
-                          msg.sender === 'user'
-                            ? 'prose-p:text-white prose-strong:text-white'
-                            : 'prose-p:text-mun-dark-text prose-strong:text-mun-dark-text'
-                        } prose-a:text-blue-200 hover:prose-a:text-blue-300`} dangerouslySetInnerHTML={renderMarkdown(msg.text)} />
-                    )}
-                  </div>
-                  {msg.sender === 'user' && <UserAvatar />}
-                </div>
-              ))}
+              {messages.map(msg => {
+                const isLastAiMessage = lastMessage?.sender === 'ai' && msg.id === lastMessage.id;
+                const showCursor = isLoading && isLastAiMessage && msg.text !== '__GENERATING__';
+                
+                return (
+                    <div key={msg.id} className={`flex items-end gap-3 message-enter ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    {msg.sender === 'ai' && <SachiAvatar />}
+                    <div className={`max-w-[80%] py-3 px-5 rounded-2xl ${msg.sender === 'user' ? 'bg-gradient-to-br from-mun-green to-green-600 text-white rounded-br-lg shadow-md' : 'bg-white text-mun-dark-text rounded-bl-lg shadow-sm border border-gray-200/50'}`}>
+                        {msg.text === '__GENERATING__' ? (
+                            <GeneratingIndicator />
+                        ) : (
+                            <div className="prose prose-base max-w-none prose-p:my-2 prose-p:text-mun-dark-text prose-strong:text-mun-dark-text prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-500 hover:prose-a:underline">
+                                <span dangerouslySetInnerHTML={renderMarkdown(msg.text)} />
+                                {showCursor && (
+                                    <span className="blinking-cursor inline-block w-2 h-5 bg-mun-dark-text ml-1 align-text-bottom"></span>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                    {msg.sender === 'user' && <UserAvatar />}
+                    </div>
+                )
+            })}
               <div ref={messagesEndRef} />
             </div>
           </main>
 
           <footer className="p-5 border-t border-gray-200/80 bg-gray-50/70 rounded-b-2xl flex-shrink-0">
-            {showSuggestions && (
+            {shouldShowSuggestions && (
                 <div className="pb-3 flex flex-wrap gap-2">
                     {suggestions.map((s) => (
                         <button key={s} onClick={() => handleSuggestionClick(s)} className="px-3.5 py-2 bg-white border border-gray-300 rounded-full text-sm text-mun-dark-text hover:bg-mun-soft-green hover:border-mun-green/50 transition-all duration-200">
