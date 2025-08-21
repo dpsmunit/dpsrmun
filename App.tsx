@@ -102,7 +102,7 @@ const App: React.FC = () => {
     </div>
   );
   
-  function MyApp({ Component, pageProps }) {
+  function App({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
@@ -110,8 +110,5 @@ const App: React.FC = () => {
     </>
   );
 }
-
-export default MyApp;
-};
 
 export default App;
