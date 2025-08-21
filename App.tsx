@@ -22,6 +22,15 @@ const routes: { [key: string]: React.ComponentType } = {
 '#contact': ContactPage,
 };
 
+function App({ Component, pageProps }) {
+return (
+<>
+<Component {...pageProps} />
+<Analytics />
+</>
+);
+}
+
 const App: React.FC = () => {
 const getPathFromHash = () => window.location.hash || '#home';
 
