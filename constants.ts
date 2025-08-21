@@ -21,7 +21,7 @@ export const HIGHLIGHTS = [
   },
   {
     icon: GlobeIcon,
-    title: 'X+ Delegates',
+    title: '800+ Delegates',
     description: 'Global Representation',
   },
 ];
