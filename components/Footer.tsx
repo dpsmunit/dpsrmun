@@ -38,7 +38,7 @@ const Footer = () => {
                     <SocialIcon href="https://www.instagram.com/dpsmun.haridwar/">
                         <InstagramIcon />
                     </SocialIcon>
-                    <SocialIcon href="mailto:dpsrmun2024@gmail.com">
+                    <SocialIcon href="mailto:dpsmun.2025@gmail.com">
                         <GmailIcon />
                     </SocialIcon>
                   
