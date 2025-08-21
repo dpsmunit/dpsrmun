@@ -27,7 +27,7 @@ const ContactPage: React.FC = () => {
 
             <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <ContactInfo icon={MailIcon} title="Email Us">
-                    <a href="mailto:dpsmun.2025@gmail.com" className="block hover:text-mun-green hover:underline transition-colors">dpsrmun2024@gmail.com</a>
+                    <a href="mailto:dpsmun.2025@gmail.com" className="block hover:text-mun-green hover:underline transition-colors">dpsmun.2025@gmail.com</a>
                     <a href="mailto:piccoloeventsofficial@gmail.com" className="block hover:text-mun-green hover:underline transition-colors">piccoloeventsofficial@gmail.com</a>
                 </ContactInfo>
                 <ContactInfo icon={PhoneIcon} title="Call Us">
