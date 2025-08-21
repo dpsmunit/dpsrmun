@@ -64,7 +64,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         name: "United Nations Human Rights Council (UNHRC)",
         tagline: "The Justice and Accountability Specialist",
         topic: "Deliberation on Alleged Human Rights Violations Arising from the Iran-Israel Escalation, Including Civilian Targeting, Use of Proxy Forces, and Internet Blackouts.",
-        iconUrl: '/images/unhc.png',
+        iconUrl: '/images/unhc.avif',
         category: 'Human Rights',
         about: "UNHRC provides intensive training in human rights law application within active conflict situations, representing some of the most complex moral and legal challenges in contemporary international relations.",
         agendaPoints: ["Investigating claims of civilian targeting and disproportionate use of force.", "Addressing the use of proxy forces and their impact on regional stability.", "Examining the effects of internet blackouts on freedom of expression.", "Proposing mechanisms for accountability and transitional justice."],
