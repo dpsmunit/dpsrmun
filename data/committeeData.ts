@@ -166,9 +166,10 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Sports Governance',
         about: "BCCI provides unique training in sports administration combining commercial interests with sporting excellence while managing stakeholder relationships in India's most popular and economically significant sport.",
         agendaPoints: ["Balancing player workload between the IPL and international duties.", "Creating transparent policies for national team selection, free from commercial influence.", "Managing conflicts of interest for players, coaches, and officials involved in both formats.", "Ensuring the primacy of international cricket in the yearly calendar."],
-        resources: [[{ title: 'BCCI', url: 'https://www.bcci.tv'}]],
+        resources: [{ title: 'BCCI', url: 'https://www.bcci.tv'}],
         members: []
     },
+    
     {
         id: slugify("IPL Auction Committee"),
         name: "IPL Auction Committee",
@@ -181,6 +182,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'Player Auction Rules', url: 'https://www.iplt20.com/auction'}, { title: 'Previous Auction Data', url: 'https://www.cricbuzz.com/cricket-series/ipl-2024/auction'}],
         members: []
     },
+    
     {
         id: slugify("FIFA Committee"),
         name: "FIFA Committee",
@@ -193,6 +195,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'FIFA Governance Regulations', url: 'https://digitalhub.fifa.com/m/1a78e72e52643a47/original/FIFA-Governance-Regulations-2023-edition.pdf'}],
         members: []
     },
+    
     {
         id: slugify("International Press"),
         name: "International Press",
@@ -205,6 +208,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'The Elements of Journalism', url: 'https://www.americanpressinstitute.org/journalism-essentials/what-is-journalism/elements-journalism/'}, { title: 'The Elements of Photography', url: '#'}, { title: 'The Elements of Videography', url: '#'}, { title: 'The Elements of Caricature', url: '#'}],
         members: []
     },
+    
     {
         id: slugify("Harry Potter Committee (Wizengamot)"),
         name: "Harry Potter Committee (Wizengamot)",
