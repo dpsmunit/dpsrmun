@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import GalleryPage from './pages/GalleryPage';
 import CommitteeDetailsPage from './pages/CDP';
+import { Analytics } from '@vercel/analytics/react';
 
 const routes: { [key: string]: React.ComponentType } = {
   '': HomePage,
