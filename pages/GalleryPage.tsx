@@ -68,10 +68,10 @@ const GALLERY_ITEMS = [
   //{ type: 'image', src: './images/photos/img4.avif', thumbnailSrc: '', caption: 'Delegates doing ', tags: ['Image'] },
 
   //{ type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
-   { type: 'image', src: './images/photos/img6.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Opening Ceremony'] },
-  { type: 'image', src: './images/photos/img9.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Opening Ceremony'] },
-   { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['LokSabha'] },
-    { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Event Photo', tags: ['Opening Ceremony'] },
+   { type: 'image', src: './images/photos/img6.avif', thumbnailSrc: '', caption: 'Opening Ceremony', tags: ['Image'] },
+  { type: 'image', src: './images/photos/img9.avif', thumbnailSrc: '', caption: 'Opening Ceremony', tags: ['Image'] },
+   { type: 'image', src: './images/photos/img10.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/img12.avif', thumbnailSrc: '', caption: 'Opening Ceremony', tags: ['Image'] },
 ];
 
 
