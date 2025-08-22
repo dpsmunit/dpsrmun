@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section
       id="home"
@@ -15,8 +15,8 @@ const Hero = () => {
         />
       </div>
 
-      {/* Dark overlay to ensure readability */}
-      <div className="absolute inset-0 bg-black/55"></div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/45"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
@@ -24,13 +24,13 @@ const Hero = () => {
           DPSR Model United Nations
         </h1>
         <p
-          className="mt-6 text-2xl md:text-4xl text-green-900 font-bold tracking-wider animate-fade-in-up"
+          className="mt-6 text-2xl md:text-4xl text-green-700 font-bold tracking-wider animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
           2025
         </p>
         <p
-          className="mt-8 text-lg md:text-xl text-gray-800 font-semibold max-w-3xl mx-auto animate-fade-in-up"
+          className="mt-8 text-lg md:text-xl text-gray-200 font-medium max-w-3xl mx-auto animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
           Forging the next generation of global leaders through diplomacy,
@@ -42,7 +42,7 @@ const Hero = () => {
         >
           <a
             href="#committees"
-            className="px-8 py-3 bg-green-700 text-white font-semibold rounded-full shadow-lg hover:bg-green-800 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-3 bg-mun-green text-white font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
           >
             Explore Committees
           </a>
@@ -54,7 +54,7 @@ const Hero = () => {
         <a
           href="#sg-note"
           aria-label="Scroll to about section"
-          className="flex flex-col items-center text-gray-300 hover:text-white transition-colors duration-300 animate-fade-in-up"
+          className="flex flex-col items-center text-gray-400 hover:text-gray-200 transition-colors duration-300 animate-fade-in-up"
           style={{ animationDelay: '0.8s' }}
         >
           <span className="text-sm font-semibold tracking-widest uppercase">
