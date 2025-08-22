@@ -11,10 +11,10 @@ const Hero = () => {
         <img
           src="/images/bgmun.avif"
           alt="Background"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-60"
         />
       </div>
-      <div className="absolute inset-0 bg-black/45"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
