@@ -57,7 +57,7 @@ const CommitteesPage: React.FC = () => {
                 Explore the Arenas of <span className="text-mun-green">Debate</span>
             </h1>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                From global crises to magical decrees, find the committee that challenges and excites you.
+                From global crisis to magical decrees, find the committee that challenges and excites you.
             </p>
         </div>
 
