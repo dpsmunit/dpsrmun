@@ -229,46 +229,45 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         iconUrl: '/images/marvel.png',
         category: 'Creative',
         about: "Using the dramatic backdrop of the Marvel Cinematic Universe, this committee tackles profound philosophical questions about utilitarianism, resource management, and ethics on a cosmic scale, challenging delegates to defend morally complex positions.",
-        agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],
-        resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
+        agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],        resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
         members: []
     },
-    {
-        id: slugify("F1"),
-        name: "Formula 1",
-        tagline: "#",
-        topic: "#",
-        iconUrl: '#',
-        category: 'Sports',
-        about: "#",
-        agendaPoints: ["#"],
-        resources: [{ title: '#', url: '#', description: '#'}],
-        members: []
-    },
-    {
-        id: slugify("Anime"),
-        name: "Anime",
-        tagline: "#",
-        topic: "#",
-        iconUrl: '#',
-        category: 'Media',
-        about: "#",
-        agendaPoints: ["#"],
-        resources: [{ title: '#', url: '#', description: '#'}],
-        members: []
-    },
-    {
-        id: slugify("NBA"),
-        name: "NBA",
-        tagline: "#",
-        topic: "#",
-        iconUrl: '#',
-        category: 'Sports',
-        about: "#",
-        agendaPoints: ["#"],
-        resources: [{ title: '#', url: '#', description: '#'}],
-        members: []
-    },
+  //  {
+  //      id: slugify("F1"),
+    //    name: "Formula 1",
+   //     tagline: "#",
+  //      topic: "#",
+   //     iconUrl: '#',
+   //     category: 'Sports',
+   //     about: "#",
+    //    agendaPoints: ["#"],
+    //    resources: [{ title: '#', url: '#', description: '#'}],
+   //     members: []
+  //  },
+ //   {
+ //       id: slugify("Anime"),
+   //     name: "Anime",
+    //    tagline: "#",
+    //    topic: "#",
+     //   iconUrl: '#',
+     //   category: 'Media',
+     //   about: "#",
+    //    agendaPoints: ["#"],
+   //     resources: [{ title: '#', url: '#', description: '#'}],
+  //      members: []
+ //   },
+//    {
+     //   id: slugify("NBA"),
+    //    name: "NBA",
+   //     tagline: "#",
+   //     topic: "#",
+  //      iconUrl: '#',
+   //     category: 'Sports',
+     //   about: "#",
+      //  agendaPoints: ["#"],
+     //   resources: [{ title: '#', url: '#', description: '#'}],
+   //     members: []
+ //   },
     
 ];
 
