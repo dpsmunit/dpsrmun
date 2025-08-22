@@ -232,7 +232,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],
         resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
         members: []
-    }
+    },
     {
         id: slugify("F1"),
         name: "Formula 1",
