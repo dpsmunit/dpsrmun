@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
     <section
       id="home"
@@ -14,23 +14,21 @@ const Hero: React.FC = () => {
           className="w-full h-full object-cover opacity-80"
         />
       </div>
-
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/45"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-gray-900">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-mun-dark-text via-green-800 to-mun-green">
           DPSR Model United Nations
         </h1>
         <p
-          className="mt-6 text-2xl md:text-4xl text-green-700 font-bold tracking-wider animate-fade-in-up"
+          className="mt-6 text-2xl md:text-4xl text-mun-green font-bold tracking-wider animate-fade-in-up"
           style={{ animationDelay: '0.2s' }}
         >
           2025
         </p>
         <p
-          className="mt-8 text-lg md:text-xl text-gray-200 font-medium max-w-3xl mx-auto animate-fade-in-up"
+          className="mt-8 text-lg md:text-xl text-gray-600 font-medium max-w-3xl mx-auto animate-fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
           Forging the next generation of global leaders through diplomacy,
@@ -54,7 +52,7 @@ const Hero: React.FC = () => {
         <a
           href="#sg-note"
           aria-label="Scroll to about section"
-          className="flex flex-col items-center text-gray-400 hover:text-gray-200 transition-colors duration-300 animate-fade-in-up"
+          className="flex flex-col items-center text-gray-500 hover:text-mun-dark-text transition-colors duration-300 animate-fade-in-up"
           style={{ animationDelay: '0.8s' }}
         >
           <span className="text-sm font-semibold tracking-widest uppercase">
@@ -78,15 +76,23 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Fade-in Animation */}
-      <style>{`
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-        }
-      `}</style>
+      <style>
+        {`
+          @keyframes fade-in-up {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+          }
+        `}
+      </style>
     </section>
   );
 };
