@@ -7,7 +7,7 @@ import useWindowSize from '../hooks/useWindowSize';
 
 const DiploBotAvatar = ({ className = 'w-10 h-10' }: { className?: string }) => (
     <div className={`${className} rounded-full bg-gradient-to-br from-mun-green to-green-400 flex-shrink-0 flex items-center justify-center text-white font-bold text-base shadow-md`}>
-      S
+      D
     </div>
 );
 
