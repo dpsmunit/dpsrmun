@@ -233,6 +233,45 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
         members: []
     }
+    {
+        id: slugify("F1"),
+        name: "Formula 1",
+        tagline: "#",
+        topic: "#",
+        iconUrl: '#',
+        category: 'Sports',
+        about: "#",
+        agendaPoints: ["#"],
+        resources: [{ title: '#', url: '#', description: '#'}],
+        members: []
+    },
+
+    {
+        id: slugify("Anime"),
+        name: "Anime",
+        tagline: "#",
+        topic: "#",
+        iconUrl: '#',
+        category: 'Media',
+        about: "#",
+        agendaPoints: ["#"],
+        resources: [{ title: '#', url: '#', description: '#'}],
+        members: []
+    },
+
+    {
+        id: slugify("NBA"),
+        name: "NBA",
+        tagline: "#",
+        topic: "#",
+        iconUrl: '#',
+        category: 'Sports',
+        about: "#",
+        agendaPoints: ["#"],
+        resources: [{ title: '#', url: '#', description: '#'}],
+        members: []
+    },
+    
 ];
 
 export const getCommitteeDetailsById = (id: string): CommitteeDetail | undefined => {
