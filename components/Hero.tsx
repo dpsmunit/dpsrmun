@@ -15,7 +15,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-black/80"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
