@@ -4,31 +4,32 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="h-screen w-full flex flex-col items-center justify-center relative text-center px-4 bg-mun-white overflow-hidden"
+      className="h-screen w-full flex flex-col items-center justify-center relative text-center px-4 overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/bgmun.avif"
           alt="Background"
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover opacity-70"
         />
       </div>
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Light Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-mun-dark-text via-green-800 to-mun-green">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter text-white drop-shadow-lg">
           DPSR Model United Nations
         </h1>
         <p
-          className="mt-6 text-2xl md:text-4xl text-mun-green font-bold tracking-wider animate-fade-in-up"
+          className="mt-6 text-2xl md:text-4xl text-white font-bold tracking-wider animate-fade-in-up drop-shadow-lg"
           style={{ animationDelay: '0.2s' }}
         >
           2025
         </p>
         <p
-          className="mt-8 text-lg md:text-xl text-gray-600 font-medium max-w-3xl mx-auto animate-fade-in-up"
+          className="mt-8 text-lg md:text-xl text-white font-medium max-w-3xl mx-auto animate-fade-in-up drop-shadow-md"
           style={{ animationDelay: '0.4s' }}
         >
           Forging the next generation of global leaders through diplomacy,
@@ -40,7 +41,7 @@ const Hero = () => {
         >
           <a
             href="#committees"
-            className="px-8 py-3 bg-mun-green text-white font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-3 bg-green-600 text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
           >
             Explore Committees
           </a>
@@ -52,7 +53,7 @@ const Hero = () => {
         <a
           href="#sg-note"
           aria-label="Scroll to about section"
-          className="flex flex-col items-center text-gray-500 hover:text-mun-dark-text transition-colors duration-300 animate-fade-in-up"
+          className="flex flex-col items-center text-gray-300 hover:text-white transition-colors duration-300 animate-fade-in-up"
           style={{ animationDelay: '0.8s' }}
         >
           <span className="text-sm font-semibold tracking-widest uppercase">
