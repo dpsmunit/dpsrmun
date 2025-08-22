@@ -125,7 +125,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         id: slugify("All India Political Parties Meet (AIPPM)"),
         name: "All India Political Parties Meet (AIPPM)",
         tagline: "The Consensus Building Master",
-        topic: "Deliberation upon Nationwide implementation of Uniform Civil Code with special emphasis on Uttarakhand Model of UCC.",
+        topic: "Deliberation upon secularism in India in light of recent events.",
         iconUrl: '/images/aippm.png',
         category: 'Indian Politics',
         about: "AIPPM simulates the most complex political negotiation in contemporary India, requiring advanced consensus building skills among diverse ideological perspectives on the most sensitive constitutional issue.",
