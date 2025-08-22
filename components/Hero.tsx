@@ -14,7 +14,7 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-60"
         />
       </div>
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/75"></div>
 
       {/* Content */}
       <div className="relative z-10 animate-fade-in-up">
