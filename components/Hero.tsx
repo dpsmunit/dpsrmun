@@ -11,7 +11,7 @@ const Hero = () => {
         <img
           src="/images/bgmun.avif"
           alt="Background"
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-40"
         />
       </div>
       <div className="absolute inset-0 bg-black/45"></div>
