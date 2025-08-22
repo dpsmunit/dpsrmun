@@ -245,7 +245,6 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: '#', url: '#', description: '#'}],
         members: []
     },
-
     {
         id: slugify("Anime"),
         name: "Anime",
@@ -258,7 +257,6 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: '#', url: '#', description: '#'}],
         members: []
     },
-
     {
         id: slugify("NBA"),
         name: "NBA",
