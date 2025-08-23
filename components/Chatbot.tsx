@@ -23,7 +23,6 @@ const suggestions = [
   "What committees are beginner-friendly?",
   "Tell me about the UNSC committee.",
   "How do I register?",
-  "What is the dress code?",
 ];
 
 const GeneratingIndicator = () => (
