@@ -132,10 +132,6 @@ export const FAQS: FaqItem[] = [
     answer: 'Absolutely. DPSR MUN 2025 is designed to be an inclusive event for delegates of all skill levels. We offer committees tailored for both novices and seasoned veterans, along with comprehensive support from our team.',
   },
   {
-    question: 'What is the dress code for the conference?',
-    answer: 'A formal business attire is mandatory for all delegates during committee sessions. This includes suits, blazers, and formal shoes. We believe this upholds the professional decorum of the United Nations.',
-  },
-  {
     question: 'How can I contact the organizing committee?',
     answer: React.createElement('p', null, 
       'For any inquiries, please feel free to reach out to us via email at ',
