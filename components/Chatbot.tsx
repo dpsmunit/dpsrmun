@@ -254,7 +254,13 @@ const Chatbot = () => {
                       {msg.text === '__GENERATING__' ? (
                         <GeneratingIndicator />
                       ) : (
-                        <div className="prose prose-base max-w-none prose-p:my-2 prose-p:text-mun-dark-text prose-strong:text-mun-dark-text prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-500 hover:prose-a:underline">
+                        <div
+                          className={
+                            msg.sender === 'user'
+                              ? "text-white"
+                              : "prose prose-base max-w-none prose-p:my-2 prose-p:text-mun-dark-text prose-strong:text-mun-dark-text prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-500 hover:prose-a:underline"
+                          }
+                        >
                           <span
                             dangerouslySetInnerHTML={renderMarkdown(
                               msg.text
