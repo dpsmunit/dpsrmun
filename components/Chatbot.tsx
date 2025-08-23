@@ -160,28 +160,36 @@ const Chatbot = () => {
           <main className="flex-1 p-6 overflow-y-auto bg-white" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #e5e7eb 1px, transparent 0)', backgroundSize: '20px 20px' }}>
             <div className="flex flex-col gap-5">
               {messages.map(msg => {
-                const isLastAiMessage = lastMessage?.sender === 'ai' && msg.id === lastMessage.id;
-                const showCursor = isLoading && isLastAiMessage && msg.text !== '__GENERATING__';
+                {messages.map(msg => {
+  const isLastAiMessage = lastMessage?.sender === 'ai' && msg.id === lastMessage.id;
+  const showCursor = isLoading && isLastAiMessage && msg.text !== '__GENERATING__';
                 
-                return (
-                    <div key={msg.id} className={`flex items-end gap-3 message-enter ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    {msg.sender === 'ai' && <DiploBotAvatar />}
-                    <div className={`max-w-[80%] py-3 px-5 rounded-2xl ${msg.sender === 'user' ? 'bg-gradient-to-br from-mun-green to-green-600 text-white rounded-br-lg shadow-md' : 'bg-white text-mun-dark-text rounded-bl-lg shadow-sm border border-gray-200/50'}`}>
-                        {msg.text === '__GENERATING__' ? (
-                            <GeneratingIndicator />
-                        ) : (
-                            <div className="prose prose-base max-w-none prose-p:my-2 prose-p:text-mun-dark-text prose-strong:text-mun-dark-text prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-500 hover:prose-a:underline">
-                                <span dangerouslySetInnerHTML={renderMarkdown(msg.text)} />
-                                {showCursor && (
-                                    <span className="blinking-cursor inline-block w-2 h-5 bg-mun-dark-text ml-1 align-text-bottom"></span>
-                                )}
-                            </div>
-                        )}
-                    </div>
-                    {msg.sender === 'user' && <UserAvatar />}
-                    </div>
-                )
-            })}
+  return (
+    <div key={msg.id} className={`flex items-end gap-3 message-enter ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+      {msg.sender === 'ai' && <DiploBotAvatar />}
+      <div className={`max-w-[80%] py-3 px-5 rounded-2xl ${msg.sender === 'user' ? 'bg-gradient-to-br from-mun-green to-green-600 text-white rounded-br-lg shadow-md' : 'bg-white text-mun-dark-text rounded-bl-lg shadow-sm border border-gray-200/50'}`}>
+        {msg.text === '__GENERATING__' ? (
+          <GeneratingIndicator />
+        ) : (
+          <div
+            className={
+              msg.sender === 'user'
+                ? "text-white"
+                : "prose prose-base max-w-none prose-p:my-2 prose-p:text-mun-dark-text prose-strong:text-mun-dark-text prose-a:text-blue-600 prose-a:font-semibold hover:prose-a:text-blue-500 hover:prose-a:underline"
+            }
+          >
+            <span dangerouslySetInnerHTML={renderMarkdown(msg.text)} />
+            {showCursor && (
+              <span className="blinking-cursor inline-block w-2 h-5 bg-mun-dark-text ml-1 align-text-bottom"></span>
+            )}
+          </div>
+        )}
+      </div>
+      {msg.sender === 'user' && <UserAvatar />}
+    </div>
+  )
+})}
+
               <div ref={messagesEndRef} />
             </div>
           </main>
