@@ -79,10 +79,10 @@ const GALLERY_ITEMS = [
     { type: 'image', src: './images/photos/HP-img-1.avif', thumbnailSrc: '', caption: 'Harry Potter', tags: ['Image'] },
     { type: 'image', src: './images/photos/UNGA-img-1.avif', thumbnailSrc: '', caption: 'UNGA', tags: ['Image'] },
     { type: 'image', src: './images/photos/UNSCW-img-1.avif', thumbnailSrc: '', caption: 'UNCSW', tags: ['Image'] },
-    { type: 'image', src: './images/photos/LokSabha-img-1.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
-    { type: 'image', src: './images/photos/LokSabha-img-2.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
-    { type: 'image', src: './images/photos/LokSabha-img-3.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
-    { type: 'image', src: './images/photos/LokSabha-img-4.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/Loksabha-img-1.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/Loksabha-img-2.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/Loksabha-img-3.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
+    { type: 'image', src: './images/photos/Loksabha-img-4.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
 ];
 
 
