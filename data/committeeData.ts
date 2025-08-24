@@ -232,18 +232,18 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         agendaPoints: ["Evaluating the ethical framework of utilitarianism versus deontology (individual rights).", "Analyzing the long-term ecological and societal impacts of halving the universe's population.", "Debating alternative solutions to cosmic resource scarcity that could have been implemented.", "Establishing a galactic precedent for handling existential threats without resorting to genocide."],        resources: [{ title: 'World Population Prospects 2024', url: 'https://population.un.org/wpp/', description: 'Global population trends and projections'}],
         members: []
     },
-    {
-        id: slugify("F1"),
-        name: "Formula 1",
-        tagline: "Fast Minds Fierce Debates",
-        topic: "Assessing the sporting, political and commercial ramifications of Lewis Hamilton’s Departure from Mercedes.",
-        iconUrl: '/images/F1.avif',
-        category: 'Sports Governance',
-        about: "The F1 Committee examines the thrilling world of Formula One, debating sporting rules, team strategies, political influences, and commercial interests. It challenges participants to assess how driver moves, technological innovations, and governance decisions impact racing, global audiences, and the sport’s future.",
-        agendaPoints: ["#"],
-        resources: [{ title: 'Introduction to F1: ', url: 'https://www.formula1.com/en/latest?page=2', description: 'All you need to know about F1.'}],
-        members: []
-    },
+//    {
+  //      id: slugify("F1"),
+    //    name: "Formula 1",
+      //  tagline: "Fast Minds Fierce Debates",
+     //   topic: "Assessing the sporting, political and commercial ramifications of Lewis Hamilton’s Departure from Mercedes.",
+     //   iconUrl: '/images/F1.avif',
+    //    category: 'Sports Governance',
+     //   about: "The F1 Committee examines the thrilling world of Formula One, debating sporting rules, team strategies, political influences, and commercial interests. It challenges participants to assess how driver moves, technological innovations, and governance decisions impact racing, global audiences, and the sport’s future.",
+      //  agendaPoints: ["#"],
+     //   resources: [{ title: 'Introduction to F1: ', url: 'https://www.formula1.com/en/latest?page=2', description: 'All you need to know about F1.'}],
+      //  members: []
+   // },
     //{
  //       id: slugify("Anime"),
    //     name: "Anime",
@@ -256,18 +256,18 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
    //     resources: [{ title: 'JJK: One of most popular New-Gens', url: 'https://www.animenewsnetwork.com/encyclopedia/anime.php?id=22944', description: 'Articles about JJK'}],
   //      members: []
  //   },
-    {
-        id: slugify("NBA"),
-        name: "NBA",
-        tagline: "New Cities Build New Legacies",
-        topic: "Relocating Underperforming NBA Franchises to New Cities.",
-        iconUrl: '/images/NBA.avif',
-        category: 'Sports Governance',
-        about: "#",
-        agendaPoints: ["#"],
-        resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
-        members: []
-    },
+  //  {
+    //    id: slugify("NBA"),
+      //  name: "NBA",
+      //  tagline: "New Cities Build New Legacies",
+    //    topic: "Relocating Underperforming NBA Franchises to New Cities.",
+    //    iconUrl: '/images/NBA.avif',
+   //     category: 'Sports Governance',
+    ///    about: "#",
+    //    agendaPoints: ["#"],
+     //   resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
+      //  members: []
+  //  },
     
 ];
 
