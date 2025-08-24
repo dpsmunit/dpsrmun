@@ -1,10 +1,10 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
 const API_KEYS = [
-  "AIzaSyBurETbQFkvTQtnCypMmwmOH4h4QuFIbFU",
-  "AIzaSyA8stqKIOC3H1rb5sHuS0_dmxNYof3utT8",
-  "AIzaSyCpFlhdmvMa5Rp9AQvRBBAnZB0Iv5ageR0"
-  // Add more API keys as needed
+  import.meta.env.VITE_GEMINI_API_1,
+  import.meta.env.VITE_GEMINI_API_2,
+  import.meta.env.VITE_GEMINI_API_3,
+  // Add more as needed
 ];
 
 interface ApiKeyStatus {
