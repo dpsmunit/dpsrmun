@@ -65,9 +65,6 @@ const GALLERY_ITEMS = [
 
 
   // Images from the 'images' directory
-  //{ type: 'image', src: './images/photos/img4.avif', thumbnailSrc: '', caption: 'Delegates doing ', tags: ['Image'] },
-
-  //{ type: 'image', src: './images/photos/img5.jpg', thumbnailSrc: '', caption: 'Event Photo', tags: ['Image'] },
     { type: 'image', src: './images/photos/Loksabha-img-5.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
     { type: 'image', src: './images/photos/AIPPM-img-1.avif', thumbnailSrc: '', caption: 'AIPPM', tags: ['Image'] },
     { type: 'image', src: './images/photos/AIPPM-img-2.avif', thumbnailSrc: '', caption: 'AIPPM', tags: ['Image'] },
