@@ -4,6 +4,14 @@ const API_KEYS = [
   import.meta.env.VITE_GEMINI_API_1,
   import.meta.env.VITE_GEMINI_API_2,
   import.meta.env.VITE_GEMINI_API_3,
+  import.meta.env.VITE_GEMINI_API_4,
+  import.meta.env.VITE_GEMINI_API_5,
+  import.meta.env.VITE_GEMINI_API_6,
+  import.meta.env.VITE_GEMINI_API_7,
+  import.meta.env.VITE_GEMINI_API_8,
+  import.meta.env.VITE_GEMINI_API_9,
+  import.meta.env.VITE_GEMINI_API_10,
+
   // Add more as needed
 ];
 
