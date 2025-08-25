@@ -242,7 +242,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Sports Governance',
         about: "The F1 Committee examines the thrilling world of Formula One, debating sporting rules, team strategies, political influences, and commercial interests. It challenges participants to assess how driver moves, technological innovations, and governance decisions impact racing, global audiences, and the sport’s future.",
         agendaPoints: ["Assessing the disruption of sporting dominance and competitive parity in Formula 1", "Examining the political realignments within Mercedes, rival teams, and the FIA.", "Evaluating the commercial ripple effects on sponsorship, media, and global fan engagement.", "Debating the implications for Mercedes’ future trajectory and Hamilton’s enduring legacy."],
-        resources: [{ title: 'Introduction to F1: ', url: 'https://www.formula1.com/en/latest?page=2', description: 'All you need to know about F1.'}],
+        resources: [{ title: 'Introduction to F1 ', url: 'https://www.formula1.com/en/latest?page=2', description: 'All you need to know about F1.'}],
         members: []
     },
     {
