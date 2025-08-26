@@ -9,8 +9,10 @@ import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import GalleryPage from './pages/GalleryPage';
 import CommitteeDetailsPage from './pages/CDP';
+import UpdatesPage from './pages/UpdatesPage';
+import UpdateDetailsPage from './pages/UpdateDetailsPage';
 import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const routes: { [key: string]: React.ComponentType } = {
   '': HomePage,
@@ -19,6 +21,7 @@ const routes: { [key: string]: React.ComponentType } = {
   '#committees': CommitteesPage,
   '#secretariat': SecretariatPage,
   '#gallery': GalleryPage,
+  '#updates': UpdatesPage,
   '#contact': ContactPage,
 };
 
@@ -43,13 +46,14 @@ const App: React.FC = () => {
       setPagePath(newPath);
       window.location.hash = newPath;
       setIsPageVisible(true);
-    }, 250);
+    }, 250); // This duration should be slightly less than the navbar animation for overlap
   };
 
   useEffect(() => {
     // Handles browser back/forward button navigation
     const handleHashChange = () => {
       const newPath = getPathFromHash();
+      // For browser history navigation, transition instantly without the orchestrated delay
       setIsPageVisible(false);
       setTimeout(() => {
         setVisualPath(newPath);
@@ -85,6 +89,10 @@ const App: React.FC = () => {
       const committeeId = pagePath.split('/')[1];
       return <CommitteeDetailsPage committeeId={committeeId} />;
     }
+    if (pagePath.startsWith('#updates/')) {
+      const updateId = pagePath.split('/')[1];
+      return <UpdateDetailsPage updateId={updateId} />;
+    }
     const Page = routes[pagePath] || HomePage;
     return <Page />;
   };
@@ -92,16 +100,12 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-mun-white text-mun-dark-text">
       <Navbar activePath={visualPath} onNavigate={handleNavigate} />
-      <main
-        className={`transition-opacity duration-200 ${
-          isPageVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
+      <main className={`transition-opacity duration-200 ${isPageVisible ? 'opacity-100' : 'opacity-0'}`}>
         {renderPage()}
       </main>
       <Footer />
       <Chatbot />
-      <Analytics /> 
+      <Analytics />
       <SpeedInsights />
     </div>
   );
