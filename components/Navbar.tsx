@@ -49,8 +49,9 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#committees', label: 'Committees' },
-    //{ href: '#secretariat', label: 'Team' },
+    //{ href: '#secretariat', label: 'Secretariat' },
     { href: '#gallery', label: 'Gallery' },
+   // { href: '#updates', label: 'Updates' },
     { href: '#contact', label: 'Contact' },
   ];
   
@@ -58,6 +59,9 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
       // Special case for committees page and its subpages
       if (href === '#committees') {
           return activePath.startsWith('#committees');
+      }
+      if (href === '#updates') {
+          return activePath.startsWith('#updates');
       }
       return activePath === href || (activePath === '' && href === '#home');
   }
