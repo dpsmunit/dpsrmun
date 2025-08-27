@@ -257,18 +257,18 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'JJK: One of most popular New-Gens', url: 'https://www.animenewsnetwork.com/encyclopedia/anime.php?id=22944', description: 'Articles about JJK'}],
         members: []
     },
-  //  {
-    //    id: slugify("NBA"),
-      //  name: "NBA",
-      //  tagline: "New Cities Build New Legacies",
-    //    topic: "Relocating Underperforming NBA Franchises to New Cities.",
-    //    iconUrl: '/images/NBA.png',
-   //     category: 'Sports Governance',
-    ///    about: "#",
-    //    agendaPoints: ["#"],
-     //   resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
-      //  members: []
-  //  },
+    {
+        id: slugify("NBA"),
+        name: "NBA",
+        tagline: "New Cities Build New Legacies",
+        topic: "Relocating Underperforming NBA Franchises to New Cities.",
+        iconUrl: '/images/NBA.png',
+        category: 'Sports Governance',
+        about: "#",
+        agendaPoints: ["Analyzing the challenges faced by underperforming NBA franchises in sustaining competitiveness and financial stability.", "Assessing the economic, infrastructural, and market-driven factors influencing franchise relocation decisions.", " Exploring the potential benefits and drawbacks of relocating teams to emerging cities and new markets.", "Evaluating the cultural and community impact of franchise relocation on both departing and host cities."],
+        resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
+        members: []
+    },
     
 ];
 
