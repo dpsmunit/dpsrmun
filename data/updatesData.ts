@@ -13,29 +13,11 @@ const slugify = (text: string): string => {
 
 export const UPDATES_DATA: UpdateItem[] = [
   {
-    id: slugify('New Committees!'),
-    title: 'New Committees!',
+    id: slugify('IP - Now Open For All!'),
+    title: 'IP - Now Open For All!',
     date: 'August 26, 2025',
-    summary: 'We’re thrilled to announce the addition of three exciting new committees! This year, we’re introducing unconventional and unique choices to broaden the MUN experience. The new committees are: NBA, Anime, and Formula 1.',
-    tags: ['COMMITTEES'],
-    content: `Get ready for a fresh wave of debate and creativity with our newly added committees!
-              Explore unique agendas that break the conventional MUN mold.
-
-                  **Formula 1 (F1)** – Assessing the sporting, political, and commercial ramifications of Lewis Hamilton’s departure from Mercedes.
-                  **NBA** – Relocating Underperforming NBA Franchises to New Cities.
-                  **Anime** – Deliberation on the eradication of non-sorcerers and the rise of sorcerer supremacy in Suguru Geto’s ideology.
-
-              For detailed information, head to the {**Committees Page**](#committees).`
-  },
-  {
-    id: slugify('Beginning of Training Sessions!'),
-    title: 'Beginning of Training Sessions!',
-    date: 'August 26, 2025',
-    summary: 'Training sessions for all committees officially began on 26th August 2025. These sessions are designed to prepare delegates with essential insights and strategies. Set a reminder and make sure not to miss these fruitful learning opportunities!',
-    tags: ['COMMITTEES'],
-    content: `Our training sessions are tailored to help delegates gain a deeper understanding of their respective committees, agendas, and debating styles. 
-              From mastering Rules of Procedure to enhancing research and public speaking, these sessions are your gateway to becoming a confident and well-prepared delegate. 
-              Attending them will not only sharpen your skills but also give you an edge during committee proceedings. Make the most of these opportunities to learn, interact, and grow before the big conference begins!`
+    summary: 'The International Press (IP) is officially open to everyone this year. No interviews required — just step in and be part of the team. Grab this chance to showcase your creative skills!',
+    tags: ['COMMITTEES'], 
   },
   {
     id: slugify('Time for an Arcade!'),
@@ -47,6 +29,16 @@ export const UPDATES_DATA: UpdateItem[] = [
               From thrilling arcade machines to exciting games, it’s the perfect spot to unwind after intense committee sessions. 
               Whether you want to compete with friends, try something new, or simply recharge your energy, the arcade will be open during breaks and the social night. 
               Don’t miss out on the chance to make memories beyond debate and diplomacy—because MUN isn’t just about resolutions, it’s about the fun too!` 
+  },
+  {
+    id: slugify('Beginning of Training Sessions!'),
+    title: 'Beginning of Training Sessions!',
+    date: 'August 26, 2025',
+    summary: 'Training sessions for all committees officially began on 26th August 2025. These sessions are designed to prepare delegates with essential insights and strategies. Set a reminder and make sure not to miss these fruitful learning opportunities!',
+    tags: ['COMMITTEES'],
+    content: `Our training sessions are tailored to help delegates gain a deeper understanding of their respective committees, agendas, and debating styles. 
+              From mastering Rules of Procedure to enhancing research and public speaking, these sessions are your gateway to becoming a confident and well-prepared delegate. 
+              Attending them will not only sharpen your skills but also give you an edge during committee proceedings. Make the most of these opportunities to learn, interact, and grow before the big conference begins!`
   },
   {
     id: slugify('HelpDesks!'),
@@ -71,12 +63,20 @@ export const UPDATES_DATA: UpdateItem[] = [
               Keep an eye out for upcoming updates, as we’ll soon unveil the name of the artist set to light up the stage. 
               Get ready to celebrate, dance, and create memories that last well beyond the conference!` 
   },
-    {
-    id: slugify('IP - Now Open For All!'),
-    title: 'IP - Now Open For All!',
+  {
+    id: slugify('New Committees!'),
+    title: 'New Committees!',
     date: 'August 26, 2025',
-    summary: 'The International Press (IP) is officially open to everyone this year. No interviews required — just step in and be part of the team. Grab this chance to showcase your creative skills!',
-    tags: ['COMMITTEES'], 
+    summary: 'We’re thrilled to announce the addition of three exciting new committees! This year, we’re introducing unconventional and unique choices to broaden the MUN experience. The new committees are: NBA, Anime, and Formula 1.',
+    tags: ['COMMITTEES'],
+    content: `Get ready for a fresh wave of debate and creativity with our newly added committees!
+              Explore unique agendas that break the conventional MUN mold.
+
+                  **Formula 1 (F1)** – Assessing the sporting, political, and commercial ramifications of Lewis Hamilton’s departure from Mercedes.
+                  **NBA** – Relocating Underperforming NBA Franchises to New Cities.
+                  **Anime** – Deliberation on the eradication of non-sorcerers and the rise of sorcerer supremacy in Suguru Geto’s ideology.
+
+              For detailed information, head to the {**Committees Page**](#committees).`
   },
 //  {
 //    id: slugify('#'),
