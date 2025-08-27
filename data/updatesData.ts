@@ -71,10 +71,11 @@ export const UPDATES_DATA: UpdateItem[] = [
     tags: ['COMMITTEES'],
     content: `Get ready for a fresh wave of debate and creativity with our newly added committees!
               Explore unique agendas that break the conventional MUN mold.
+              ###New Committees include:
                   **Formula 1 (F1)** – Assessing the sporting, political, and commercial ramifications of Lewis Hamilton’s departure from Mercedes.
                   **NBA** – Relocating Underperforming NBA Franchises to New Cities.
                   **Anime** – Deliberation on the eradication of non-sorcerers and the rise of sorcerer supremacy in Suguru Geto’s ideology.
-              For detailed information, head to the [**Committees Page!**](https://dpsrmun.com/#committees).`
+              For detailed information, head to the [**Committees Page!**](https://dpsrmun.com/#committees) and refer to the info given.`
   },
 //  {
 //    id: slugify('#'),
