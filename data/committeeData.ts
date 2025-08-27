@@ -129,7 +129,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         iconUrl: '/images/aippm.png',
         category: 'Indian Politics',
         about: "AIPPM simulates the most complex political negotiation in contemporary India, requiring advanced consensus building skills among diverse ideological perspectives on the most sensitive constitutional issue.",
-        agendaPoints: ["Examining the Uttarakhand UCC Bill as a potential national model.", "Discussing the balance between uniform laws and the right to freedom of religion.", "Addressing the concerns and suggestions of various communities and stakeholders.", "Building a political consensus for a potential nationwide UCC."],
+        agendaPoints: ["Evaluating the constitutional principles of secularism in the context of recent socio-political developments.", "Examining the role of political parties in either safeguarding or polarizing India’s secular fabric.", "Addressing judicial interventions and their significance in upholding secularism as part of the basic structure.", "Deliberating on policy reforms and initiatives required to strengthen communal harmony and inclusive governance."],
         resources: [{ title: 'Constituent Assembly Debates on UCC', url: 'https://www.constitutionofindia.net/constitution_assembly_debates', description: 'Assembly that shaped soverign Indian republic'}],
         members: []
     },
@@ -241,7 +241,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         iconUrl: '/images/F1.png',
         category: 'Sports Governance',
         about: "The F1 Committee examines the thrilling world of Formula One, debating sporting rules, team strategies, political influences, and commercial interests. It challenges participants to assess how driver moves, technological innovations, and governance decisions impact racing, global audiences, and the sport’s future.",
-        agendaPoints: ["Assessing the disruption of sporting dominance and competitive parity in Formula 1", "Examining the political realignments within Mercedes, rival teams, and the FIA.", "Evaluating the commercial ripple effects on sponsorship, media, and global fan engagement.", "Debating the implications for Mercedes’ future trajectory and Hamilton’s enduring legacy."],
+        agendaPoints: ["Assessing the disruption of sporting dominance and competitive parity in Formula 1.", "Examining the political realignments within Mercedes, rival teams, and the FIA.", "Evaluating the commercial ripple effects on sponsorship, media, and global fan engagement.", "Debating the implications for Mercedes’ future trajectory and Hamilton’s enduring legacy."],
         resources: [{ title: 'Introduction to F1 ', url: 'https://www.formula1.com/en/latest?page=2', description: 'All you need to know about F1.'}],
         members: []
     },
