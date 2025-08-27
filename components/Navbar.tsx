@@ -51,7 +51,7 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
     { href: '#committees', label: 'Committees' },
     //{ href: '#secretariat', label: 'Secretariat' },
     { href: '#gallery', label: 'Gallery' },
-   // { href: '#updates', label: 'Updates' },
+    { href: '#updates', label: 'Updates' },
     { href: '#contact', label: 'Contact' },
   ];
   
