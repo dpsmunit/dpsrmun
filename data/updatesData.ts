@@ -19,17 +19,17 @@ export const UPDATES_DATA: UpdateItem[] = [
     summary: 'The International Press (IP) is officially open to everyone this year. No interviews required — just step in and be part of the team. Grab this chance to showcase your creative skills!',
     tags: ['COMMITTEES'], 
   },
-  {
-    id: slugify('Time for an Arcade!'),
-    title: 'Time for an Arcade!',
-    date: 'August 26, 2025',
-    summary: 'An arcade zone by Time Zone is coming to this year’s MUN! Enjoy new games and arcades during breaks and the social night. Relax, recharge, and have fun with friends between sessions.',
-    tags: ['ENTERTAINMENT'],
-    content: `This year, we’re leveling up your MUN experience with an exclusive Time Zone arcade area. 
-              From thrilling arcade machines to exciting games, it’s the perfect spot to unwind after intense committee sessions. 
-              Whether you want to compete with friends, try something new, or simply recharge your energy, the arcade will be open during breaks and the social night. 
-              Don’t miss out on the chance to make memories beyond debate and diplomacy—because MUN isn’t just about resolutions, it’s about the fun too!` 
-  },
+ // {
+ //   id: slugify('Time for an Arcade!'),
+ //   title: 'Time for an Arcade!',
+ //   date: 'August 26, 2025',
+ //   summary: 'An arcade zone by Time Zone is coming to this year’s MUN! Enjoy new games and arcades during breaks and the social night. Relax, recharge, and have fun with friends between sessions.',
+ //   tags: ['ENTERTAINMENT'],
+ //   content: `This year, we’re leveling up your MUN experience with an exclusive Time Zone arcade area. 
+ //             From thrilling arcade machines to exciting games, it’s the perfect spot to unwind after intense committee sessions. 
+ //             Whether you want to compete with friends, try something new, or simply recharge your energy, the arcade will be open during breaks and the social night. 
+ //             Don’t miss out on the chance to make memories beyond debate and diplomacy—because MUN isn’t just about resolutions, it’s about the fun too!` 
+ // },
   {
     id: slugify('Beginning of Training Sessions!'),
     title: 'Beginning of Training Sessions!',
