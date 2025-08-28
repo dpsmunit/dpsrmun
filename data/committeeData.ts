@@ -264,7 +264,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         topic: "Relocating Underperforming NBA Franchises to New Cities.",
         iconUrl: '/images/NBA.png',
         category: 'Sports Governance',
-        about: "#",
+        about: "The NBA Committee debates the relocation of underperforming franchises to new cities, weighing sporting competitiveness, financial viability, political influence, and community impact. Participants analyze how shifting teams can reshape fan bases, revive markets, enhance league revenue, and redefine the cultural and commercial landscape of basketball.",
         agendaPoints: ["Analyzing the challenges faced by underperforming NBA franchises in sustaining competitiveness and financial stability.", "Assessing the economic, infrastructural, and market-driven factors influencing franchise relocation decisions.", " Exploring the potential benefits and drawbacks of relocating teams to emerging cities and new markets.", "Evaluating the cultural and community impact of franchise relocation on both departing and host cities."],
         resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
         members: []
