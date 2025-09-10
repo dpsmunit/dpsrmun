@@ -9,8 +9,7 @@ import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import GalleryPage from './pages/GalleryPage';
 import CommitteeDetailsPage from './pages/CDP';
-import UpdatesPage from './pages/UpdatesPage';
-import UpdateDetailsPage from './pages/UpdateDetailsPage';
+import EbookPage from './pages/EbookPage';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -21,7 +20,7 @@ const routes: { [key: string]: React.ComponentType } = {
   '#committees': CommitteesPage,
   '#secretariat': SecretariatPage,
   '#gallery': GalleryPage,
-  '#updates': UpdatesPage,
+  '#ebook': EbookPage,
   '#contact': ContactPage,
 };
 
@@ -88,10 +87,6 @@ const App: React.FC = () => {
     if (pagePath.startsWith('#committees/')) {
       const committeeId = pagePath.split('/')[1];
       return <CommitteeDetailsPage committeeId={committeeId} />;
-    }
-    if (pagePath.startsWith('#updates/')) {
-      const updateId = pagePath.split('/')[1];
-      return <UpdateDetailsPage updateId={updateId} />;
     }
     const Page = routes[pagePath] || HomePage;
     return <Page />;
