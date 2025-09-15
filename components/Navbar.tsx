@@ -49,6 +49,7 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#committees', label: 'Committees' },
+    { href: '#updates', label: 'Updates' },
    // { href: '#secretariat', label: 'Secretariat' },
     { href: '#gallery', label: 'Gallery' },
    // { href: '#ebook', label: 'Ebook' },
