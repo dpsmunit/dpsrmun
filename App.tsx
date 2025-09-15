@@ -10,6 +10,7 @@ import Chatbot from './components/Chatbot';
 import GalleryPage from './pages/GalleryPage';
 import CommitteeDetailsPage from './pages/CDP';
 import EbookPage from './pages/EbookPage';
+import UpdatesPage from './pages/UpdatesPage';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
