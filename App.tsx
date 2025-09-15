@@ -19,6 +19,7 @@ const routes: { [key: string]: React.ComponentType } = {
   '#about': AboutPage,
   '#committees': CommitteesPage,
   '#secretariat': SecretariatPage,
+  '#updates':Updates,
   '#gallery': GalleryPage,
   '#ebook': EbookPage,
   '#contact': ContactPage,
