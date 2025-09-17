@@ -65,7 +65,7 @@ const App: React.FC = () => {
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    
+
     // Set initial state from URL
     const initialPath = getPathFromHash();
     if (window.location.hash === '') {
@@ -73,12 +73,12 @@ const App: React.FC = () => {
     }
     setVisualPath(initialPath);
     setPagePath(initialPath);
-    
+
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
-  
+
   useEffect(() => {
     // On page change, scroll to top after the new page has faded in.
     if (isPageVisible) {
@@ -87,19 +87,15 @@ const App: React.FC = () => {
   }, [pagePath, isPageVisible]);
 
   const renderPage = () => {
-    // Handle committee details routing
     if (pagePath.startsWith('#committees/')) {
-      const committeeId = pagePath.split('/')[13];
+      const committeeId = pagePath.split('/')[1];
       return <CommitteeDetailsPage committeeId={committeeId} />;
     }
-    
-    // THIS WAS MISSING! - so i added this so that the details page will be accessible now
     if (pagePath.startsWith('#updates/')) {
-      const updateId = pagePath.split('/')[13];
-      return <UpdateDetailsPage updateId={updateId} />;
+        const updateId = pagePath.split('/')[1];
+        return <UpdateDetailsPage updateId={updateId} />;
     }
-    
-    // Handle standard routes
+ 
     const Page = routes[pagePath] || HomePage;
     return <Page />;
   };
