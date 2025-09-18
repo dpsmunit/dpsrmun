@@ -51,7 +51,6 @@ const generateVideoThumbnail = (videoSrc: string): Promise<string> => {
     });
 };
 
-
 interface GalleryItem {
     type: 'image' | 'video';
     src: string;
@@ -62,9 +61,7 @@ interface GalleryItem {
 }
 
 const GALLERY_ITEMS = [
-
-
-  // Images from the 'images' directory
+    // Images from the 'images' directory
     { type: 'image', src: './images/photos/Loksabha-img-5.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
     { type: 'image', src: './images/photos/AIPPM-img-1.avif', thumbnailSrc: '', caption: 'AIPPM', tags: ['Image'] },
     { type: 'image', src: './images/photos/AIPPM-img-2.avif', thumbnailSrc: '', caption: 'AIPPM', tags: ['Image'] },
@@ -80,14 +77,7 @@ const GALLERY_ITEMS = [
     { type: 'image', src: './images/photos/Loksabha-img-2.avif', thumbnailSrc: '', caption: 'Loksabha', tags: ['Image'] },
 ];
 
-
-
-
-
-
-
 const allTags = ['All', ...Array.from(new Set(GALLERY_ITEMS.flatMap(img => img.tags)))];
-
 
 const GalleryCard: React.FC<{
     item: GalleryItem;
@@ -102,8 +92,6 @@ const GalleryCard: React.FC<{
                 .then(setDynamicThumbnail)
                 .catch(err => {
                     console.error(`Failed to generate thumbnail for ${item.src}:`, err);
-                    // You could set a fallback image here if you want
-                    // setDynamicThumbnail('/path/to/fallback-video-icon.png');
                 });
         } else {
             setDynamicThumbnail(item.thumbnailSrc);
@@ -154,10 +142,45 @@ const Lightbox: React.FC<{
 }> = ({ items, currentIndex, onClose, onNext, onPrev, isMobile }) => {
     const [isMediaLoading, setIsMediaLoading] = useState(true);
     const [isClosing, setIsClosing] = useState(false);
+    const [preloadedItems, setPreloadedItems] = useState<Set<number>>(new Set());
+    const preloadTimerRef = useRef<NodeJS.Timeout | null>(null);
 
+    // Preload adjacent images for faster transitions
     useEffect(() => {
+        // Clear any existing timer
+        if (preloadTimerRef.current) {
+            clearTimeout(preloadTimerRef.current);
+        }
+
         setIsMediaLoading(true);
-    }, [currentIndex]);
+
+        // Preload next and previous items
+        const preloadIndices = [
+            (currentIndex - 1 + items.length) % items.length,
+            (currentIndex + 1) % items.length,
+        ];
+
+        preloadIndices.forEach(index => {
+            if (!preloadedItems.has(index) && items[index].type === 'image') {
+                const img = new Image();
+                img.src = items[index].src;
+                img.onload = () => {
+                    setPreloadedItems(prev => new Set(prev).add(index));
+                };
+            }
+        });
+
+        // Set a timeout to ensure loading state doesn't get stuck
+        preloadTimerRef.current = setTimeout(() => {
+            setIsMediaLoading(false);
+        }, 300);
+
+        return () => {
+            if (preloadTimerRef.current) {
+                clearTimeout(preloadTimerRef.current);
+            }
+        };
+    }, [currentIndex, items, preloadedItems]);
 
     const handleClose = useCallback(() => {
         setIsClosing(true);
@@ -197,41 +220,7 @@ const Lightbox: React.FC<{
             className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
             onClick={handleClose}
         >
-             <style>{`
-                @keyframes lightbox-enter {
-                    from { opacity: 0; transform: scale(0.9); }
-                    to { opacity: 1; transform: scale(1); }
-                }
-                .animate-lightbox-enter { animation: lightbox-enter 0.3s ease-out forwards; }
-                
-                @keyframes aurora-flow {
-                    0% { transform: translate(-20%, -20%) rotate(0deg); }
-                    100% { transform: translate(20%, 20%) rotate(360deg); }
-                }
-                .aurora-1, .aurora-2 {
-                    position: absolute;
-                    width: 150vw;
-                    height: 150vh;
-                    mix-blend-mode: screen;
-                    filter: blur(100px);
-                    will-change: transform;
-                }
-                .aurora-1 {
-                    top: -50%; left: -50%;
-                    background: radial-gradient(circle, rgba(29, 185, 84, 0.25), transparent 60%);
-                    animation: aurora-flow 30s infinite linear alternate;
-                }
-                .aurora-2 {
-                    bottom: -50%; right: -50%;
-                    background: radial-gradient(circle, rgba(16, 185, 129, 0.2), transparent 60%);
-                    animation: aurora-flow 40s infinite linear alternate-reverse;
-                }
-            `}</style>
-            
-            <div className="absolute inset-0 bg-black/80 backdrop-blur-lg overflow-hidden -z-10">
-                <div className="aurora-1" />
-                <div className="aurora-2" />
-            </div>
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-lg -z-10"></div>
 
             <button
                 className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md text-white/70 hover:text-white transition-all duration-300 hover:scale-110 z-50"
@@ -261,45 +250,47 @@ const Lightbox: React.FC<{
             )}
             
             <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-16" onClick={(e) => e.stopPropagation()}>
-                <div className="relative animate-lightbox-enter flex-grow flex items-center justify-center w-full">
+                <div className="relative flex-grow flex items-center justify-center w-full">
                     {isMediaLoading && (
-                        <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
                             <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
                         </div>
                     )}
-                    {currentItem.type === 'image' ? (
-                        <img
-                            key={currentIndex}
-                            src={currentItem.src}
-                            alt={currentItem.caption}
-                            onLoad={() => setIsMediaLoading(false)}
-                            className={`max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
-                        />
-                    ) : isGoogleDriveVideo ? (
-                        <iframe
-                            key={currentIndex}
-                            src={googleDriveEmbedUrl!}
-                            title={currentItem.caption}
-                            onLoad={() => setIsMediaLoading(false)}
-                            className={`w-full max-w-5xl aspect-video bg-black border-none rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
-                            allow="autoplay"
-                            allowFullScreen
-                        ></iframe>
-                    ) : (
-                        <video
-                            key={currentIndex}
-                            src={currentItem.src}
-                            controls
-                            autoPlay
-                            muted
-                            onLoadedData={() => setIsMediaLoading(false)}
-                            className={`max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}
-                        >
-                            Your browser does not support the video tag.
-                        </video>
-                    )}
+                    <div className={`transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}>
+                        {currentItem.type === 'image' ? (
+                            <img
+                                key={currentIndex}
+                                src={currentItem.src}
+                                alt={currentItem.caption}
+                                onLoad={() => setIsMediaLoading(false)}
+                                className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                            />
+                        ) : isGoogleDriveVideo ? (
+                            <iframe
+                                key={currentIndex}
+                                src={googleDriveEmbedUrl!}
+                                title={currentItem.caption}
+                                onLoad={() => setIsMediaLoading(false)}
+                                className="w-full max-w-5xl aspect-video bg-black border-none rounded-lg shadow-2xl"
+                                allow="autoplay"
+                                allowFullScreen
+                            ></iframe>
+                        ) : (
+                            <video
+                                key={currentIndex}
+                                src={currentItem.src}
+                                controls
+                                autoPlay
+                                muted
+                                onLoadedData={() => setIsMediaLoading(false)}
+                                className="max-w-full max-h-[75vh] md:max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                            >
+                                Your browser does not support the video tag.
+                            </video>
+                        )}
+                    </div>
                 </div>
-                <div className={`w-full p-4 transition-opacity duration-300 ${isMediaLoading ? 'opacity-0' : 'opacity-100'}`}>
+                <div className="w-full p-4 mt-4">
                     <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-lg max-w-2xl mx-auto text-center">
                         <p className="text-base md:text-lg font-medium text-white drop-shadow-md">{currentItem.caption}</p>
                     </div>
