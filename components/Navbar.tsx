@@ -49,10 +49,9 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#committees', label: 'Committees' },
-    { href: '#updates', label: 'Updates' },
    // { href: '#secretariat', label: 'Secretariat' },
     { href: '#gallery', label: 'Gallery' },
-   // { href: '#ebook', label: 'Ebook' },
+    { href: '#newsletter', label: 'Newsletter' },
     { href: '#contact', label: 'Contact' },
   ];
   
@@ -60,6 +59,9 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
       // Special case for committees page and its subpages
       if (href === '#committees') {
           return activePath.startsWith('#committees');
+      }
+       if (href === '#newsletter') {
+          return activePath.startsWith('#newsletter');
       }
       return activePath === href || (activePath === '' && href === '#home');
   }
@@ -123,14 +125,15 @@ const Navbar = ({ activePath, onNavigate }: { activePath: string; onNavigate: (p
         </button>
         <nav className="flex flex-col items-center gap-8">
           {navLinks.map((link) => (
-            <MobileNavLink
-                key={link.href}
-                href={link.href}
-                isActive={isLinkActive(link.href)}
-                onClick={(e) => handleMobileLinkClick(e, link.href)}
-                >
-              {link.label}
-            </MobileNavLink>
+            <React.Fragment key={link.href}>
+              <MobileNavLink
+                  href={link.href}
+                  isActive={isLinkActive(link.href)}
+                  onClick={(e) => handleMobileLinkClick(e, link.href)}
+                  >
+                {link.label}
+              </MobileNavLink>
+            </React.Fragment>
           ))}
         </nav>
     </div>
