@@ -12,6 +12,7 @@ import CommitteeDetailsPage from './pages/CDP';
 import EbookPage from './pages/EbookPage';
 import UpdatesPage from './pages/UpdatesPage';
 import UpdateDetailsPage from './pages/UpdateDetailsPage';
+import NewsletterPage from './pages/NewsletterPage';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -20,10 +21,11 @@ const routes: { [key: string]: React.ComponentType } = {
   '#home': HomePage,
   '#about': AboutPage,
   '#committees': CommitteesPage,
-  '#secretariat': SecretariatPage,
+  //'#secretariat': SecretariatPage,
   '#updates': UpdatesPage,
   '#gallery': GalleryPage,
-  '#ebook': EbookPage,
+
+  '#newsletter': NewsletterPage,
   '#contact': ContactPage,
 };
 
