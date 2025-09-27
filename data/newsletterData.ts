@@ -29,21 +29,21 @@ export const NEWSLETTER_DATA: NewsletterItem[] = [
     author: 'Daksh tyagi'
   },
    {
-    src: '/newsletter/newsletter_4.jpg',  
+    src: '/newsletter/newsletter_4.png',  
     title: 'Delegate Dress Code',
     date: 'September 2025 Edition',
     description: 'Details the formal dress code for delegates of international and Indian committees.',
     author: 'Deepshikha'
   },
    {
-    src: '/newsletter/newsletter_5.jpg',  
+    src: '/newsletter/newsletter_5.png',  
     title: "MUN 101: A Rookie's Survival Guide",
     date: 'September 2025 Edition',
     description: "A beginner's guide to MUN covering preparation, position papers, and key skills.",
     author: 'Masoom Bagare'
   },
    {
-    src: '/newsletter/newsletter_6.jpg',  
+    src: '/newsletter/newsletter_6.png',  
     title: "Suguru Geto: A Sorcerer's Tragic, Radical Fall.",
     date: 'September 2025 Edition',
     description: 'An analysis of the fictional character Suguru Geto from the Jujutsu Kaisen series.',
