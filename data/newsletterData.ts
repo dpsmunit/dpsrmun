@@ -29,24 +29,24 @@ export const NEWSLETTER_DATA: NewsletterItem[] = [
     author: 'Daksh tyagi'
   },
    {
-    "src": "/newsletter/newsletter_4.jpg",
-    "title": "Delegate Dress Code",
-    "date": "September 2025 Edition",
-    "description": "Details the formal dress code for delegates of international and Indian committees.",
-    "author": "Deepshikha"
+    src: '/newsletter/newsletter_4.jpg',  
+    title: 'Delegate Dress Code',
+    date: 'September 2025 Edition',
+    description: 'Details the formal dress code for delegates of international and Indian committees.',
+    author: 'Deepshikha'
   },
-  {
-    "src": "/newsletter/newsletter_5.jpg",
-    "title": "MUN 101: A Rookie's Survival Guide",
-    "date": "September 2025 Edition",
-    "description": "A beginner's guide to MUN covering preparation, position papers, and key skills.",
-    "author": "Masoom Bagare"
+   {
+    src: '/newsletter/newsletter_5.jpg',  
+    title: "MUN 101: A Rookie's Survival Guide",
+    date: 'September 2025 Edition',
+    description: "A beginner's guide to MUN covering preparation, position papers, and key skills.",
+    author: 'Masoom Bagare'
   },
-  {
-    "src": "/newsletter/newsletter_6.jpg",
-    "title": "Suguru Geto: A Sorcerer's Tragic, Radical Fall.",
-    "date": "September 2025 Edition",
-    "description": "An analysis of the fictional character Suguru Geto from the Jujutsu Kaisen series.",
-    "author": "Suvigya Vishwakarma"
-  }
+   {
+    src: '/newsletter/newsletter_6.jpg',  
+    title: "Suguru Geto: A Sorcerer's Tragic, Radical Fall.",
+    date: 'September 2025 Edition',
+    description: 'An analysis of the fictional character Suguru Geto from the Jujutsu Kaisen series.',
+    author: 'Suvigya Vishwakarma'
+  },
 ];
