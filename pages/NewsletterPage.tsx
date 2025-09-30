@@ -103,7 +103,9 @@ const EbookSection: React.FC = () => {
   const { ref: headerRef, isVisible } = useScrollAnimation<HTMLDivElement>();
   const { height: windowHeight } = useWindowSize();
   const [viewerHeight, setViewerHeight] = useState<number | undefined>();
-  const pdfPath = '/files/dpsr-mun-guide.pdf';
+  const fileId = '1wpmJUx5fM_C2rExlD5t0yX-5dISgZmg5';
+  const pdfPath = `https://drive.google.com/file/d/${fileId}/preview`;
+  const downloadPath = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
   useEffect(() => {
     const calculateHeight = () => {
@@ -112,7 +114,7 @@ const EbookSection: React.FC = () => {
         const mainContentPaddingTop = 32;
         const pageBottomMargin = 64;
         const availableHeight = window.innerHeight - headerBottomPosition - mainContentPaddingTop - pageBottomMargin;
-        setViewerHeight(Math.max(800, availableHeight)); // Increased minimum height from 600 to 800
+        setViewerHeight(Math.max(600, availableHeight));
       }
     };
 
@@ -140,7 +142,7 @@ const EbookSection: React.FC = () => {
             Your comprehensive guide to the DPSR MUN 2025 conference. All the rules, procedures, and tips you need to succeed are right here.
           </p>
           <a
-            href={pdfPath}
+            href={downloadPath}
             download="DPSR_Almanac.pdf"
             className="mt-8 inline-flex items-center gap-3 px-8 py-3 bg-mun-green text-white font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
           >
