@@ -25,7 +25,7 @@ const routes: { [key: string]: React.ComponentType } = {
   '#updates': UpdatesPage,
   '#gallery': GalleryPage,
 
-  '#newsletter': NewsletterPage,
+  '#editorials': NewsletterPage,
   '#contact': ContactPage,
 };
 
