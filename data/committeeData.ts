@@ -157,18 +157,6 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'ICJ Statute', url: 'https://www.icj-cij.org/statute', description: "Defines Internation Court of Justice's Jurisdiction"}],
         members: []
     },
-    {
-        id: slugify("Board of Control for Cricket in India (BCCI)"),
-        name: "Board of Control for Cricket in India (BCCI)",
-        tagline: "The Sports Governance Expert",
-        topic: "Regulating the Growing Commercial Influence of the IPL on National Team Selections and Schedules.",
-        iconUrl: '/images/bcci.png',
-        category: 'Sports Governance',
-        about: "BCCI provides unique training in sports administration combining commercial interests with sporting excellence while managing stakeholder relationships in India's most popular and economically significant sport.",
-        agendaPoints: ["Balancing player workload between the IPL and international duties.", "Creating transparent policies for national team selection, free from commercial influence.", "Managing conflicts of interest for players, coaches, and officials involved in both formats.", "Ensuring the primacy of international cricket in the yearly calendar."],
-        resources: [{ title: 'BCCI', url: 'https://www.bcci.tv', description: "India's premier cricket adminstrative governing body"}],
-        members: []
-    },
     
     {
         id: slugify("IPL Auction Committee"),
@@ -257,19 +245,6 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         resources: [{ title: 'JJK: One of most popular New-Gens', url: 'https://www.animenewsnetwork.com/encyclopedia/anime.php?id=22944', description: 'Articles about JJK'}],
         members: []
     },
-    {
-        id: slugify("NBA"),
-        name: "NBA",
-        tagline: "New Cities Build New Legacies",
-        topic: "Relocating Underperforming NBA Franchises to New Cities.",
-        iconUrl: '/images/NBA.png',
-        category: 'Sports Governance',
-        about: "The NBA Committee debates the relocation of underperforming franchises to new cities, weighing sporting competitiveness, financial viability, political influence, and community impact. Participants analyze how shifting teams can reshape fan bases, revive markets, enhance league revenue, and redefine the cultural and commercial landscape of basketball.",
-        agendaPoints: ["Analyzing the challenges faced by underperforming NBA franchises in sustaining competitiveness and financial stability.", "Assessing the economic, infrastructural, and market-driven factors influencing franchise relocation decisions.", " Exploring the potential benefits and drawbacks of relocating teams to emerging cities and new markets.", "Evaluating the cultural and community impact of franchise relocation on both departing and host cities."],
-        resources: [{ title: 'NBA', url: 'https://www.sportingnews.com/in/nba?gr=www', description: 'A brief introduction of NBA.'}],
-        members: []
-    },
-    
 ];
 
 export const getCommitteeDetailsById = (id: string): CommitteeDetail | undefined => {
