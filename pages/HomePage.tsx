@@ -1,72 +1,147 @@
-
 import React from 'react';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
 import WhyJoin from '../components/WhyJoin';
+import Countdown from '../components/Countdown';
 import Faq from '../components/Faq';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { assetPaths } from '../assets';
-import Countdown from '../components/Countdown';
 
- const SecretaryGeneralNote = () => {
-  const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+const AnimatedSection = ({ children }: { children: React.ReactNode }) => {
+    const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
+    return (
+        <div ref={ref} className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {children}
+        </div>
+    );
+};
 
-  return (
-    <section id="sg-note" className="py-24 sm:py-32 bg-mun-white">
-      <div
-        ref={ref}
-        className={`container mx-auto px-6 lg:px-8 transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-3">
-            <h2 className="text-3xl md:text-4xl font-bold text-mun-dark-text mb-6">
-              A Note from the <span className="text-mun-green">Secretary-General</span>
-            </h2>
-            <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-              <p className="text-justify">
-                Esteemed Delegates, Advisors, and future leaders,
-              </p>
-              <p className="text-justify">
-                It is with immense pride and great anticipation that I welcome you to the 2025 edition of the DPSR Model United Nations. In a world fraught with complexities and unprecedented challenges, the need for articulate, informed, and compassionate leadership has never been more critical. This conference is more than a simulation; it is a crucible where ideas are forged, perspectives are challenged, and the diplomats of tomorrow are born.
-              </p>
-              <p>
-                Our secretariat has worked tirelessly to prepare a conference that is not only intellectually stimulating but also deeply engaging. We have curated a diverse array of committees to tackle issues ranging from global security to sustainable development and human rights. Here, your voice matters, your research is vital, and your ability to collaborate will determine your success.
-              </p>
-              <p className="text-justify">
-                I urge you to step into your roles with conviction, to debate with respect, and to seek consensus with an open mind. Let DPSR MUN 2025 be the platform where you discover your potential and begin your journey as a global changemaker.
-              </p>
+
+interface LeadershipNoteProps {
+    imageSrc: string;
+    imageAlt: string;
+    titlePart1: string;
+    titlePart2: string;
+    greeting: string;
+    paragraphs: string[];
+    signatureName: string;
+    signatureRole: string;
+    imagePosition?: 'left' | 'right';
+    rotateImage?: boolean;
+}
+
+const LeadershipNote: React.FC<LeadershipNoteProps> = ({
+    imageSrc, imageAlt, titlePart1, titlePart2, greeting, paragraphs, signatureName, signatureRole, imagePosition = 'right', rotateImage = false
+}) => {
+    const containerClasses = imagePosition === 'right' ? 'lg:flex-row' : 'lg:flex-row-reverse';
+
+    return (
+        <div className={`flex flex-col ${containerClasses} items-center gap-12 lg:gap-16`}>
+            {/* Text Column */}
+            <div className="w-full lg:w-3/5">
+                <div className="relative mb-8">
+                    <span className="absolute -top-6 -left-6 text-9xl font-serif text-mun-green/10 select-none z-0">
+                        “
+                    </span>
+                    <h2 className="relative z-10 text-4xl md:text-5xl font-bold text-mun-dark-text leading-tight">
+                        {titlePart1} <span className="text-mun-green">{titlePart2}</span>
+                    </h2>
+                </div>
+
+                <div className="relative border-l-4 border-mun-green/70 pl-8 space-y-5 text-gray-700 text-lg leading-loose">
+                    <p className="font-medium text-gray-800">{greeting}</p>
+                    {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+                </div>
+
+                <div className="mt-10 pl-8">
+                    <p style={{ fontFamily: "'Caveat', cursive" }} className="text-5xl text-mun-dark-text -mb-2">
+                        {signatureName}
+                    </p>
+                    <p className="text-md text-mun-green font-semibold tracking-wider">{signatureRole}</p>
+                </div>
             </div>
-          </div>
-          <div className="lg:col-span-2 flex flex-col items-center justify-center group">
-            <div className="relative w-64 md:w-72">
-                <div className="absolute -inset-2.5 bg-mun-soft-green rounded-xl transform -rotate-3 transition-transform duration-500 group-hover:rotate-2"></div>
-                <div className="relative bg-white rounded-xl shadow-lg p-2">
-                    <img
-                      src={assetPaths.sgNote}
-                      alt="Secretary-General"
-                      className="w-full h-auto object-cover rounded-lg"
-                    />
-                    <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full rounded-b-lg">
-                        <h4 className="font-bold text-lg text-white"></h4>
-                        <p className="text-sm text-mun-soft-green">Secretary-General</p>
+
+            {/* Image Column */}
+            <div className="w-full lg:w-2/5 flex items-center justify-center">
+                <div className="relative group w-full max-w-sm mx-auto">
+                    {/* Enhanced Aurora */}
+                    <div className="absolute -inset-6 blur-3xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 will-change-transform">
+                        <div className="absolute inset-0 bg-gradient-to-br from-mun-green via-transparent to-transparent rounded-full animate-pulse [animation-duration:10s]"></div>
+                        <div className="absolute inset-8 bg-gradient-to-tl from-mun-soft-green via-white to-transparent rounded-full animate-pulse [animation-duration:8s] [animation-delay:-3s]"></div>
+                        <div className="absolute -inset-4 bg-gradient-to-br from-green-400 to-transparent rounded-full opacity-60 animate-spin [animation-duration:30s] [animation-direction:reverse]"></div>
+                    </div>
+                    
+                    {/* Image Wrapper */}
+                    <div className={`relative z-10 rounded-2xl shadow-xl overflow-hidden transition-transform duration-500 group-hover:scale-105 ${rotateImage ? 'aspect-[3/4]' : ''}`}>
+                        <img
+                            src={imageSrc}
+                            alt={imageAlt}
+                            className={`block w-full object-cover transition-transform duration-500 ${rotateImage ? 'h-full transform -rotate-90 scale-150' : 'h-auto'}`}
+                        />
                     </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-  );
-}; 
+    );
+};
+
 
 const HomePage: React.FC = () => {
     return (
         <>
             <Hero />
-            <Highlights />
-            <Countdown />
-            <WhyJoin />
-            <Faq />
+            <AnimatedSection>
+                <section id="sg-note" className="bg-mun-white py-24 sm:py-32">
+                     <div className="container mx-auto px-6 lg:px-8 space-y-24">
+                         <LeadershipNote
+                            imageSrc={assetPaths.sgNote}
+                            imageAlt="Aradhya Chauhan, Secretary-General"
+                            imagePosition="right"
+                            rotateImage={true}
+                            titlePart1="A Note from the"
+                            titlePart2="Secretary-General"
+                            greeting="With the success of the first edition of DPSRMUN driving us forward, it is with great pride and enthusiasm that I warmly welcome you all on behalf of the Organizing Committee."
+                            paragraphs={[
+                                "It fills me with immense joy to see my schoolmates step into the world of diplomacy. Over the years, I've learned the value of patience, open-mindedness, and respectful dialogue—qualities at the core of diplomacy, and I hope each of you embraces them through this platform.",
+                                "DPSRMUN is an opportunity to discover the leaders and diplomats within you. Behind this event stands a tireless Organizing Committee. Balancing academics and responsibilities, our team—many of them first-timers—has shown resilience, passion, and unity across every domain, from registrations to logistics, sponsorships to hospitality, all with one goal: making DPSRMUN 2.0 truly unforgettable.",
+                                "To all the delegates—whether it's your first conference or not—my message is simple: speak boldly, listen attentively, respect always, and stay proactive. With these values, there is no limit to what you can achieve. Know that I am here to support you throughout this journey.",
+                                "I cannot wait to witness the energy, intellect, and enthusiasm you will bring. On behalf of the Organizing Committee, I extend a heartfelt welcome. Let's make history once again."
+                            ]}
+                            signatureName="Aradhya Chauhan"
+                            signatureRole="Secretary-General, DPSR MUN 2025"
+                        />
+                        <LeadershipNote
+                            imageSrc={assetPaths.directorGeneral}
+                            imageAlt="Suvigya Vishwakarma, Director-General"
+                            imagePosition="left"
+                            titlePart1="A Note from the"
+                            titlePart2="Director-General"
+                            greeting="Respected Delegates, it is with immense honor and delight that I welcome you to the Second Edition of the Delhi Public School Ranipur Model United Nations Conference (2025)."
+                            paragraphs={[
+                                "After the resounding success of our inaugural edition, this year stands as a testament to our commitment to building a stronger and more impactful platform for dialogue, diplomacy, and leadership. As the sun rises on the 11th and 12th of October, these grounds shall once again transform into an arena of vibrant discussions, spirited negotiations, and the pursuit of solutions that carry the promise of a better tomorrow.",
+                                "In the months of preparation that have led to this moment, I have been fortunate to witness the diligence, creativity, and unity of our Organizing Committee, whose ceaseless dedication has shaped every detail of this conference. From meticulously designed committees to carefully curated agendas, each element has been built to challenge your intellect, test your diplomacy, and nurture your potential as global citizens.",
+                                "This conference is not merely an event; it is an experience: one that will leave behind memories of collaboration, perseverance, and growth. On behalf of the entire Secretariat, I extend my deepest gratitude to all delegates for bringing your passion and commitment to this platform.",
+                                "May DPSRMUN 2025 serve as a journey of learning and leadership, fostering a spirit that resonates beyond these walls: a spirit that speaks in the world, by the world, and for the world."
+                            ]}
+                            signatureName="Suvigya Vishwakarma"
+                            signatureRole="Director-General, DPSR MUN 2025"
+                        />
+                    </div>
+                </section>
+            </AnimatedSection>
+            
+            <AnimatedSection>
+                <Highlights />
+            </AnimatedSection>
+            <AnimatedSection>
+                <Countdown />
+            </AnimatedSection>
+            <AnimatedSection>
+                <WhyJoin />
+            </AnimatedSection>
+            <AnimatedSection>
+                <Faq />
+            </AnimatedSection>
         </>
     );
 };
