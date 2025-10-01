@@ -112,8 +112,7 @@ const HomePage: React.FC = () => {
     return (
         <>
             <Hero />
-            <SecretaryGeneralNote />
-            <DirectorGeneralNote />
+           
             <Highlights />
             <Countdown />
             <WhyJoin />
