@@ -167,7 +167,7 @@ export const COMMITTEE_DATA: CommitteeDetail[] = [
         category: 'Sports Auction',
         about: "The IPL Auction provides the most interactive and high-pressure committee experience, teaching strategic resource allocation and competitive decision-making in dynamic, real-time environments.",
         agendaPoints: ["Developing a winning auction strategy based on team needs and player analysis.", "Managing a budget under intense competitive pressure.", "Valuating players based on performance, potential, and market dynamics.", "Adapting to real-time bidding wars and unexpected player acquisitions."],
-        resources: [{ title: 'Player Auction Rules', url: 'https://www.iplt20.com/auction', description: 'Auction rules ensure fair team building'}, { title: 'Previous Auction Data', url: 'https://www.cricbuzz.com/cricket-series/ipl-2024/auction', description: 'Hightlights trends, bids, team spending patterns'}],
+        resources: [{ title: 'Player Auction Rules', url: 'https://www.iplt20.com/auction', description: 'Auction rules ensure fair team building'}, { title: 'Previous Auction Data', url: 'https://www.cricbuzz.com/cricket-series/ipl-2025/auction/completed', description: 'Hightlights trends, bids, team spending patterns'}],
         members: []
     },
     
