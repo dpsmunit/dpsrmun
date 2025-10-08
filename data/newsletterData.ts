@@ -61,5 +61,6 @@ export const NEWSLETTER_DATA: NewsletterItem[] = [
     title: 'Research like a Diplomat',
     date: 'September 2025 Edition',
     description: 'Tips for effective research to excel at DPSR MUN 2025.',
+    author: 'Sarthak Dewan'
   },
 ];
