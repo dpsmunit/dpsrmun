@@ -50,7 +50,8 @@ const Footer = () => {
                     <p className="text-sm font-semibold">In association with</p>
                     <img src={assetPaths.piccoloLogo} alt="Piccolo Events" className="h-10" />
                 </div>
-                <p>&copy; {new Date().getFullYear()} DPSR MUN. All Rights Reserved. Made By Sachchidanand (Member IT Council)</p>
+                <p>&copy; {new Date().getFullYear()} DPSR MUN. All Rights Reserved. </p>
+                <p>Made By Sachchidanand (Member IT Council)</p>
             </div>
         </div>
     </footer>
