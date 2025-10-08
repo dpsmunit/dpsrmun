@@ -103,7 +103,7 @@ const EbookSection: React.FC = () => {
   const { ref: headerRef, isVisible } = useScrollAnimation<HTMLDivElement>();
   const { height: windowHeight } = useWindowSize();
   const [viewerHeight, setViewerHeight] = useState<number | undefined>();
-  const fileId = '1wpmJUx5fM_C2rExlD5t0yX-5dISgZmg5';
+  const fileId = '1tY4lBM7LjhUMqaN58McQAgdPHqHqKv7g';
   const pdfPath = `https://drive.google.com/file/d/${fileId}/preview`;
   const downloadPath = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
