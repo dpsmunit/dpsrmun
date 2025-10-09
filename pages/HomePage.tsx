@@ -66,7 +66,7 @@ const LeadershipNote: React.FC<LeadershipNoteProps> = ({
             <div className="w-full lg:w-2/5 flex items-center justify-center">
                 <div className="relative group w-full max-w-xs sm:max-w-sm mx-auto">
                     <div className={`absolute -inset-2.5 bg-mun-soft-green rounded-xl transform transition-all duration-500 ${bgRotation}`}></div>
-                    <div className={`relative z-10 bg-white rounded-xl shadow-lg p-2 transform transition-all duration-500 ${imageRotation}`}>
+                    <div className={`relative z-10 bg-white rounded-xl shadow-lg p-2 transform transition-all duration-500 `}>
                         <div className="aspect-[4/5] overflow-hidden rounded-lg">
                              <img
                                 src={imageSrc}
