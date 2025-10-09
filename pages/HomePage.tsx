@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Hero from '../components/Hero';
 import Highlights from '../components/Highlights';
@@ -41,7 +42,7 @@ const LeadershipNote: React.FC<LeadershipNoteProps> = ({
             <div className="w-full lg:w-3/5">
                 <div className="relative mb-6">
                      <span className="absolute -top-8 -left-4 text-9xl font-serif text-mun-green/10 select-none z-0">
-                        "
+                        “
                     </span>
                     <h2 className="relative z-10 text-4xl md:text-5xl font-bold text-mun-dark-text leading-tight">
                         {titlePart1} <span className="text-mun-green">{titlePart2}</span>
@@ -70,7 +71,7 @@ const LeadershipNote: React.FC<LeadershipNoteProps> = ({
                              <img
                                 src={imageSrc}
                                 alt={imageAlt}
-                                className={`w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 ${imageAlt.includes('Secretary-General') ? '-rotate-90' : ''}`}
+                                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                             />
                         </div>
                     </div>
