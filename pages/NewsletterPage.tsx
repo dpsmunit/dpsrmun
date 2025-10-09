@@ -101,15 +101,18 @@ const NewsletterSection: React.FC<{ onSelectImage: (src: string) => void }> = ({
 // EbookSection Component
 const EbookSection: React.FC = () => {
   const { ref: headerRef, isVisible } = useScrollAnimation<HTMLDivElement>();
-  const { height: windowHeight } = useWindowSize();
+  const { height: windowHeight, width: windowWidth } = useWindowSize();
   const [viewerHeight, setViewerHeight] = useState<number | undefined>();
   const fileId = '1tY4lBM7LjhUMqaN58McQAgdPHqHqKv7g';
   const pdfPath = `https://drive.google.com/file/d/${fileId}/preview`;
   const downloadPath = `https://drive.google.com/uc?export=download&id=${fileId}`;
+  
+  // Check if screen is too small for PDF preview (typically mobile devices)
+  const isMobileView = windowWidth < 768;
 
   useEffect(() => {
     const calculateHeight = () => {
-      if (headerRef.current) {
+      if (headerRef.current && !isMobileView) {
         const headerBottomPosition = headerRef.current.getBoundingClientRect().bottom;
         const mainContentPaddingTop = 32;
         const pageBottomMargin = 64;
@@ -120,7 +123,7 @@ const EbookSection: React.FC = () => {
 
     const timer = setTimeout(calculateHeight, 50);
     return () => clearTimeout(timer);
-  }, [windowHeight, isVisible, headerRef]);
+  }, [windowHeight, isVisible, headerRef, isMobileView]);
 
   return (
     <section className="bg-mun-white">
@@ -136,7 +139,7 @@ const EbookSection: React.FC = () => {
         />
         <div className="container mx-auto px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-mun-dark-text">
-            The Official <span className="text-mun-green">Guidebook</span>
+            The Official <span className="text-mun-green">Almanac</span>
           </h1>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
             Your comprehensive guide to the DPSR MUN 2025 conference. All the rules, procedures, and tips you need to succeed are right here.
@@ -147,23 +150,25 @@ const EbookSection: React.FC = () => {
             className="mt-8 inline-flex items-center gap-3 px-8 py-3 bg-mun-green text-white font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105"
           >
             <DownloadIcon className="w-5 h-5" />
-            Download Guide
+            Download Almanac
           </a>
         </div>
       </header>
 
-      <main className="pt-8 pb-16">
-        <div className="container mx-auto max-w-7xl px-4 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden">
-            <embed
-              src={pdfPath}
-              type="application/pdf"
-              className="w-full"
-              style={{ height: viewerHeight ? `${viewerHeight}px` : '80vh' }}
-            />
+      {!isMobileView && (
+        <main className="pt-8 pb-16">
+          <div className="container mx-auto max-w-7xl px-4 lg:px-8">
+            <div className="bg-white rounded-2xl shadow-2xl border border-gray-200/50 overflow-hidden">
+              <embed
+                src={pdfPath}
+                type="application/pdf"
+                className="w-full"
+                style={{ height: viewerHeight ? `${viewerHeight}px` : '80vh' }}
+              />
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      )}
     </section>
   );
 };
