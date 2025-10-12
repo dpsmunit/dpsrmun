@@ -127,9 +127,7 @@ const HomePage: React.FC = () => {
             <AnimatedSection>
                 <Highlights />
             </AnimatedSection>
-            <AnimatedSection>
-                <Countdown />
-            </AnimatedSection>
+        
             <AnimatedSection>
                 <WhyJoin />
             </AnimatedSection>
